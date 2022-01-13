@@ -67,7 +67,8 @@
 </template>
 
 <script>
- import {fb} from '../firebase';
+//  import {fb} from '../firebase';
+ import firebase from 'firebase/compat/app'
 // import $ from 'jquery';
 
 export default {
@@ -77,32 +78,14 @@ export default {
   },
   data(){
       return {
-          name:null,
-          email:null,
-          password:null
+          name:"",
+          email:"",
+          password:""
       }
   },
   methods:{ 
-    //   login(){
-    //       fb.auth().signInWithEmailAndPassword(this.email, this.password)
-    //                     .then(() => {
-    //                     $('#login').modal('hide')
-    //                       this.$router.replace('admin');  
-    //                     })
-    //                     .catch(function(error) {
-    //                         var errorCode = error.code;
-    //                         var errorMessage = error.message;
-    //                         if (errorCode === 'auth/wrong-password') {
-    //                             alert('Wrong password.');
-    //                         } else {
-    //                             alert(errorMessage);
-    //                         }
-    //                         console.log(error);
-    //                 });
-    //   }
-
       register(){
-            fb.auth().createUserWithEmailAndPassword(this.email, this.password)
+            firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
                 // .then((user) => {
                     
                     // this.$router.replace('admin');
