@@ -101,28 +101,28 @@
 </template>
 
 <script>
-import Hero from "@/components/Hero.vue";
+// import Hero from "@/components/Hero.vue";
 import $ from 'jquery';
-import {fb} from '../firebase';
+// import {fb} from '../firebase';
 
 export default {
   name: "admin",
   components: {
-    Hero
+    // Hero
   },
   methods:{
       closeMenu(){
           $(".page-wrapper").toggleClass("toggled");
       },
-      logout(){
-          fb.auth().signout()
-          .then(() => {
-              this.$router.replace('/');
-          })
-          .catch( () => {
-              console.log(err);
-          });
-      }
+    //   logout(){
+    //       fb.auth().signout()
+    //       .then(() => {
+    //           this.$router.replace('/');
+    //       })
+    //       .catch( () => {
+    //           console.log(err);
+    //       });
+    //   }
   }
 };
 </script>
