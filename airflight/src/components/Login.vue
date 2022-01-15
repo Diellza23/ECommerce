@@ -6,15 +6,15 @@
                 <div class="modal-body">
                         <ul class="nav nav-fill nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Login</a>
+                                <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" >Home</button>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Signup</a>
+                                 <button class="nav-link" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" >Sign Up</button>
                             </li>
                         </ul>
 
                         <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade " id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                        <div class="tab-pane fade show active " id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                             
                             <h5 class="text-center">Login Please</h5>
 
@@ -33,7 +33,7 @@
                             </div>
 
                         </div>
-                        <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                        <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
                             
                              <h5 class="text-center">Create New Account</h5>
                              
@@ -67,16 +67,12 @@
 </template>
 
 <script>
-//  import {fb} from '../firebase';
-//  import 'firebase/compat/auth';
-//  import firebase from 'firebase/compat/app'
-// import firebase from '@firebase/app';
-//  require('firebase/auth')
+
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 // import 'firebase/compat/firestore';
-// import $ from 'jquery';
+import $ from 'jquery';
 
 export default {
   name: "Login",
@@ -94,13 +90,15 @@ export default {
       register(){
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
                  .then(() => {
-                     this.$router.replace('/admin');
+                     $('#login').modal('hide')
+                     this.$router.replace('admin');
                  })
                 .catch(function(error) {
+                    
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     if(errorCode == 'auth/weak-password'){
-                        alert('The pass is too weak.');
+                        alert('The password is too weak.');
                     }
                     else{
                         alert(errorMessage);
@@ -112,6 +110,5 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 </style>

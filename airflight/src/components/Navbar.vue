@@ -30,7 +30,6 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <a class="btn btn-outline-success my-2 my-sm-0" data-bs-toggle="modal" data-bs-target="#login">Get Started</a>
             <a class="btn btn-outline-info border-0 mx-2 my-2 my-sm-0" data-toggle="modal" data-target="#miniCart"></a>
-            <i class="fas fa-cart-plus"></i>
           </form>
         </div>
       </div>
