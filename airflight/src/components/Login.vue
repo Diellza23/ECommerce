@@ -93,10 +93,9 @@ export default {
   methods:{ 
       register(){
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-                // .then((user) => {
-                    
-                    // this.$router.replace('admin');
-                // })
+                 .then(() => {
+                     this.$router.replace('/admin');
+                 })
                 .catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;
