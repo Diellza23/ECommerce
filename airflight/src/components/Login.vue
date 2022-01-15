@@ -14,7 +14,7 @@
                         </ul>
 
                         <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                        <div class="tab-pane fade " id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                             
                             <h5 class="text-center">Login Please</h5>
 
@@ -33,7 +33,7 @@
                             </div>
 
                         </div>
-                        <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                        <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
                             
                              <h5 class="text-center">Create New Account</h5>
                              
@@ -68,7 +68,14 @@
 
 <script>
 //  import {fb} from '../firebase';
- import firebase from 'firebase/compat/app'
+//  import 'firebase/compat/auth';
+//  import firebase from 'firebase/compat/app'
+// import firebase from '@firebase/app';
+//  require('firebase/auth')
+
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+// import 'firebase/compat/firestore';
 // import $ from 'jquery';
 
 export default {
