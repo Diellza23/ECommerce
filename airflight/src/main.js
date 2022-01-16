@@ -4,6 +4,8 @@ import jQuery from 'jquery';
 import router from "./router";
 window.$ = window.jQuery = jQuery;
 import firebase from 'firebase/compat/app'
+require("firebase/compat/firestore");
+// import { getFirestore } from "firebase/firestore"
 
 import 'popper.js';
 import 'bootstrap';
@@ -24,7 +26,21 @@ firebase.initializeApp(firebaseConfig);
 
 Vue.config.productionTip = false
 
-new Vue({
+let app ="";
+
+
+
+firebase.auth().onAuthStateChanged(function(){
+
+  if(!app){
+    new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')
+  }
+})
+
+const db = firebase.firestore();
+export {db}
+
+

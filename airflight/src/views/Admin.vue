@@ -82,28 +82,22 @@
                         </li>
                     </ul>
                 </div>
-                <!-- sidebar-menu  -->
             </div>
        
         </nav>
-        <!-- sidebar-content  -->
         <main class="page-content">
             <router-view/>
         </main>
-        <!-- page-content" -->
     </div>
-    <!-- page-wrapper -->
-
-
-
 
   </div>
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import $ from "jquery";
 // import Hero from "@/components/Hero.vue";
-import $ from 'jquery';
-// import {fb} from '../firebase';
 
 export default {
   name: "admin",
@@ -114,15 +108,15 @@ export default {
       closeMenu(){
           $(".page-wrapper").toggleClass("toggled");
       },
-    //   logout(){
-    //       fb.auth().signout()
-    //       .then(() => {
-    //           this.$router.replace('/');
-    //       })
-    //       .catch( () => {
-    //           console.log(err);
-    //       });
-    //   }
+       logout(){
+           firebase.auth().signOut()
+           .then(() => {
+               this.$router.replace('/');
+           })
+           .catch((err) => {
+               console.log(err);
+           });
+       }
   }
 };
 </script>
