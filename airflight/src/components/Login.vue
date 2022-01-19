@@ -18,7 +18,7 @@
             >
               <li class="nav-item">
                 <button
-                  class="nav-link"
+                  class="nav-link active"
                   id="home-tab"
                   data-bs-toggle="tab"
                   data-bs-target="#pills-login"

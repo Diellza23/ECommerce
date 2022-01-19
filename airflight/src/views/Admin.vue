@@ -67,7 +67,6 @@
                                 <span>Orders</span>
                             </router-link>
                         </li>
-
                         <li>
                             <router-link to="/admin/profile">
                                 <i class="fa fa-user"></i>
@@ -97,12 +96,18 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import $ from "jquery";
-// import Hero from "@/components/Hero.vue";
+//  import Hero from "@/components/Hero.vue";
 
 export default {
   name: "admin",
+  data(){
+      return{
+          name: null,
+          email:null,
+      }
+  },
   components: {
-    // Hero
+    //  Hero
   },
   methods:{
       closeMenu(){
@@ -117,6 +122,11 @@ export default {
                console.log(err);
            });
        }
+  },
+  created(){
+      var user = firebase.auth().currentUser;
+      this.email = user.email;
   }
+
 };
 </script>
