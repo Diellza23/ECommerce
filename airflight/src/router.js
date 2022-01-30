@@ -4,9 +4,10 @@ import Home from "./views/Home.vue";
 import Admin from "./views/Admin.vue";
 import Overview from "./views/Overview.vue";
 import Products from "./views/Products.vue";
-import firebase from 'firebase/compat/app'
-import Profile from './views/Profile.vue'
-import Orders from './views/Orders.vue'
+import firebase from 'firebase/compat/app';
+import Profile from './views/Profile.vue';
+import Orders from './views/Orders.vue';
+import About from './views/About.vue';
 
 Vue.use(Router);
 
@@ -48,10 +49,9 @@ const router = new Router({
             ]
         },
         {
-            path: "about",
+            path: "/about",
             name: "about",
-            component: () =>
-            import(/* webpackChunkName:"about" */ "./views/About.vue")
+            component: About
         }
     ]
 })
