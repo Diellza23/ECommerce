@@ -51,10 +51,11 @@
                 role="tabpanel"
                 aria-labelledby="pills-login-tab"
               >
-                <h5 class="text-center">Login Please</h5>
+              
+                <h5 class="text-center" style="font-size:24px;">Login </h5>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+                <div class="form-group" style="margin-bottom:20px">
+                  <label for="exampleInputEmail1" >Email address</label>
                   <input
                     type="email"
                     v-model="email"
@@ -63,11 +64,9 @@
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
                   />
-                  <small class="form-text text-muted"
-                    >We'll never share your email with anyone else.</small
-                  >
+                  
                 </div>
-                <div class="form-group">
+                <div class="form-group"  style="margin-bottom:25px">
                   <label for="exampleInputPassword1">Password</label>
                   <input
                     type="password"
@@ -80,8 +79,9 @@
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-primary" @click="login">Login</button>
+                  <button class="btn btn-outline-primary" @click="login" style="width:50%">Sign in</button>
                 </div>
+
               </div>
               <div
                 class="tab-pane fade"
@@ -89,9 +89,9 @@
                 role="tabpanel"
                 aria-labelledby="pills-register-tab"
               >
-                <h5 class="text-center">Create New Account</h5>
+                <h5 class="text-center">Sign Up</h5>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom:20px">
                   <label for="name">Your name</label>
                   <input
                     type="text"
@@ -102,7 +102,7 @@
                   />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom:20px">
                   <label for="email">Email address</label>
                   <input
                     type="email"
@@ -113,11 +113,11 @@
                     placeholder="Enter email"
                   />
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom:20px">
                   <label for="password">Password</label>
                   <input
                     type="password"
-                    @keyup.enter="register"
+                    @keyup.enter="createUser"
                     v-model="password"
                     class="form-control"
                     id="password"
@@ -125,9 +125,9 @@
                   />
                 </div>
 
-                <div class="form-group">
-                  <button class="btn btn-primary" @click="register">
-                    Signup
+                <div class="form-group" style="display:flex;justify-content:right">
+                  <button class="btn btn-outline-primary" style="width: 50%;" @click="createUser">
+                    Register
                   </button>
                 </div>
               </div>
@@ -143,7 +143,9 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import $ from "jquery";
-// import 'firebase/compat/firestore';
+// import {db} from '../main'
+// import axios from 'axios'
+import apiRequest from '@/utility/apiRequest'
 
 export default {
   name: "Login",
@@ -158,6 +160,23 @@ export default {
     };
   },
   methods: {
+      async createUser(){
+      try{
+        await apiRequest.post('/users/register',{
+          email: this.email,
+          password: this.password
+          
+        })
+         $('#login').modal('hide');
+           this.$router.replace('about');  
+        //  this.$router.replace({name: 'Listing'});
+      }
+      catch(err){
+        this.error = err.response.data.error;
+        alert("Email address taken")
+      }
+    },
+
       login(){
           firebase.auth().signInWithEmailAndPassword(this.email, this.password)
                         .then(() => {
@@ -176,27 +195,39 @@ export default {
                             console.log(error);
                     });
       },
-    register() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          $("#login").modal("hide");
-          this.$router.replace('admin');
-          location.reload();
-          console.log(user);
-        })
-        .catch(function (error) {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          if (errorCode == "auth/weak-password") {
-            alert("The password is too weak.");
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);
-        });
-    },
+    // register() {
+    //   firebase.auth().createUserWithEmailAndPassword(
+    //     this.email, 
+    //     this.password
+    //     )
+    //     .then((user) => {
+    //       $("#login").modal("hide");
+    //       // console.log(user);
+
+    //       db.collection("profiles").doc(user.user.uid).set({
+    //         name:this.name
+    //       })
+    //       .then(function(){
+    //         console.log("Document successfully written!");
+    //       })
+    //       .catch(function(error){
+    //         console.error("Error writing doc: ",error)
+    //       })
+          
+    //       this.$router.replace('admin');
+    //       location.reload();
+    //     })
+    //     .catch(function (error) {
+    //       var errorCode = error.code;
+    //       var errorMessage = error.message;
+    //       if (errorCode == "auth/weak-password") {
+    //         alert("The password is too weak.");
+    //       } else {
+    //         alert(errorMessage);
+    //       }
+    //       console.log(error);
+    //     });
+    // },
   },
 };
 </script>

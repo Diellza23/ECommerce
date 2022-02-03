@@ -149,7 +149,7 @@ import Toast from 'sweetalert2'
 export default {
   name: "profile",
   components: {
-    
+     
   },
   props: {
     msg: String

@@ -1,6 +1,9 @@
 <template>
-        <div class="container">
+        <div>
           <Navbar></Navbar>
+          
+              
+          <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="about-details-cap p-2 pt-3 pl-2 pr-2 pb-0 ">
@@ -23,7 +26,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pt-4 map img-fluid">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2937.6209566262937!2d21.12899141586645!3d42.584567179172396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549d539fe9170f%3A0x96a018472c30145!2sGjirafa%2C%20Inc!5e0!3m2!1sen!2s!4v1621186396607!5m2!1sen!2s" height="450" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>                </div>
             </div>
-    
+    </div>
     <div class="shop-method-area m-5">
         <div class="container p-4 m-2">
             <div class="method-wrapper">
@@ -66,6 +69,15 @@
     </div>
 </div>
 </template>
+
+<script>
+
+
+export default {
+  name: "about",
+};
+</script>
+
 
 <style scoped>
 .icon{

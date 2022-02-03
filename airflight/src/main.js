@@ -12,6 +12,12 @@ import 'popper.js';
 import 'bootstrap';
 import './assets/app.scss';
 import 'firebase/compat/storage'
+import {getAuth,onAuthStateChanged} from 'firebase/auth'
+import store from './store/index';
+// import {getApp} from 'firebase/app'
+// import {getAuth, connectAuthEmulator} from 'firebase/auth';
+// import {getFirestore, connectFirestoreEmulator} from 'firebase/firestore'
+// import {getFunctions, connectFunctionsEmulator} from 'firebase/functions'
 
 
 Vue.use(VueFirestore, {
@@ -33,6 +39,21 @@ const firebaseConfig = {
   appId: "1:876452602881:web:b104c88aef0099c32d8c00",
   measurementId: "G-0X96HBT70Q"
 };
+firebase.initializeApp(firebaseConfig);
+
+onAuthStateChanged(getAuth(),(user) =>{
+  store.dispatch("fetchUser",user);
+});
+
+// const auth = getAuth();
+// connectAuthEmulator(auth, "http://localhost:9099");
+
+// const firestore = getFirestore();
+// connectFirestoreEmulator(firestore, 'localhost', 8080);
+
+
+// const functions = getFunctions(getApp());
+// connectFunctionsEmulator(functions, 'localhost', 5001);
 
 const Toast = Swal.mixin({
   toast: true,
@@ -48,7 +69,6 @@ const Toast = Swal.mixin({
 
 window.Toast = Toast;
 
-firebase.initializeApp(firebaseConfig);
 
 Vue.config.productionTip = false
 

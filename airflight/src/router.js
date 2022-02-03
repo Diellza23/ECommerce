@@ -21,6 +21,11 @@ const router = new Router({
             component: Home
         },
         {
+            path: "/about",
+            name: "about",
+            component: About
+        },
+        {
             path:"/admin",
             name: "admin",
             component: Admin, 
@@ -48,11 +53,7 @@ const router = new Router({
                 }
             ]
         },
-        {
-            path: "/about",
-            name: "about",
-            component: About
-        }
+        
     ]
 })
 

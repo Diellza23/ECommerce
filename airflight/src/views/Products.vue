@@ -21,7 +21,7 @@
       
 
       <h3 class="d-inline-block">Products list</h3>
-      <button @click="addNew()" class="btn btn-primary float-right">Add Product</button>
+      <button @click="addNew()" class="btn btn-primary float-right" style="float:right">Add Product</button>
       
       <div class="table-responsive">
       <table class="table">
@@ -77,11 +77,11 @@
                 <div class="col-md-4">
                     <h4 class="display-6">Product Details</h4>
                      <hr>
-                <div class="form-group">
+                <div class="form-group" style="margin-top:15px">
                   <input type="text" placeholder="Price" v-model="product.price" class="form-control">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-top:15px">
                   <input type="text" @keyup.188="addTag()" placeholder="Product tags" v-model="tag" class="form-control">
                   <div class="d-flex"> 
                   <p v-for="tag in product.tags" :key="tag" >
@@ -92,7 +92,7 @@
                 
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-top:15px">
                   <label for="product_image">Product Images</label>
                   <input type="file" @change="uploadImage" class="form-control">
                 </div>
@@ -132,7 +132,7 @@ import firebase from 'firebase/compat/app'
 
 export default {
   name: 'Products',
-  components:{
+  components:{ 
     VueEditor
   },
   props: {
