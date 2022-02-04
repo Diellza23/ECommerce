@@ -70,7 +70,7 @@
                   <label for="exampleInputPassword1">Password</label>
                   <input
                     type="password"
-                    @keyup.enter="login"
+                    @keyup.enter="loginUser"
                     v-model="password"
                     class="form-control"
                     id="exampleInputPassword1"
@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-outline-primary" @click="login" style="width:50%">Sign in</button>
+                  <button class="btn btn-outline-primary" @click="loginUser" style="width:50%">Sign in</button>
                 </div>
 
               </div>
@@ -143,9 +143,11 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import $ from "jquery";
-// import {db} from '../main'
+import {db} from '../main'
 // import axios from 'axios'
-import apiRequest from '@/utility/apiRequest'
+import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
+
+// import apiRequest from '@/utility/apiRequest/apiRequest';
 
 export default {
   name: "Login",
@@ -157,77 +159,87 @@ export default {
       name: "",
       email: "",
       password: "",
+      error:null
     };
   },
   methods: {
-      async createUser(){
-      try{
-        await apiRequest.post('/users/register',{
-          email: this.email,
-          password: this.password
-          
-        })
-         $('#login').modal('hide');
-           this.$router.replace('about');  
-        //  this.$router.replace({name: 'Listing'});
-      }
-      catch(err){
-        this.error = err.response.data.error;
-        alert("Email address taken")
-      }
-    },
-
-      login(){
-          firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-                        .then(() => {
-                        $('#login').modal('hide');
-                          this.$router.replace('admin');  
-                          location.reload();
-                        })
-                        .catch(function(error) {
-                            var errorCode = error.code;
-                            var errorMessage = error.message;
-                            if (errorCode === 'auth/wrong-password') {
-                                alert('Wrong password provided.');
-                            } else {
-                                alert(errorMessage);
-                            }
-                            console.log(error);
-                    });
-      },
-    // register() {
-    //   firebase.auth().createUserWithEmailAndPassword(
-    //     this.email, 
-    //     this.password
-    //     )
-    //     .then((user) => {
-    //       $("#login").modal("hide");
-    //       // console.log(user);
-
-    //       db.collection("profiles").doc(user.user.uid).set({
-    //         name:this.name
-    //       })
-    //       .then(function(){
-    //         console.log("Document successfully written!");
-    //       })
-    //       .catch(function(error){
-    //         console.error("Error writing doc: ",error)
-    //       })
-          
-    //       this.$router.replace('admin');
-    //       location.reload();
-    //     })
-    //     .catch(function (error) {
-    //       var errorCode = error.code;
-    //       var errorMessage = error.message;
-    //       if (errorCode == "auth/weak-password") {
-    //         alert("The password is too weak.");
-    //       } else {
-    //         alert(errorMessage);
-    //       }
-    //       console.log(error);
-    //     });
+    // async createUser() {
+    //   try{
+    //     await apiRequest.registerUser(this.email,this.password)
+    //       $('#login').modal('hide');
+    //       this.$router.replace('about');  
+    //     //  this.$router.replace({name: 'Listing'});
+    //   }
+    //   catch(err){
+    //     this.error = err.response.data.error;
+    //     alert("Email address taken")
+    //   }
     // },
+
+    async loginUser(){
+        const auth = getAuth();
+        try{
+          await signInWithEmailAndPassword(auth, this.email, this.password)
+          this.$router.replace('list')
+        }
+        catch(err){
+            this.error = err
+        }
+          
+    }
+
+      // ,login(){
+      //     firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+      //                   .then(() => {
+      //                   $('#login').modal('hide');
+      //                     this.$router.replace('admin');  
+      //                     location.reload();
+      //                   })
+      //                   .catch(function(error) {
+      //                       var errorCode = error.code;
+      //                       var errorMessage = error.message;
+      //                       if (errorCode === 'auth/wrong-password') {
+      //                           alert('Wrong password provided.');
+      //                       } else {
+      //                           alert(errorMessage);
+      //                       }
+      //                       console.log(error);
+      //               });
+      // },
+      ,
+    createUser() {
+      firebase.auth().createUserWithEmailAndPassword(
+        this.email, 
+        this.password
+        )
+        .then((user) => {
+          $("#login").modal("hide");
+          // console.log(user);
+
+          db.collection("profiles").doc(user.user.uid).set({
+            name:this.name
+          })
+          .then(function(){
+            console.log("Document successfully written!");
+          })
+          .catch(function(error){
+            console.error("Error writing doc: ",error)
+          })
+          
+          this.$router.replace('admin');
+          location.reload();
+        })
+        .catch(function (error) {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode == "auth/weak-password") {
+            alert("The password is too weak.");
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+        });
+    },
   },
 };
 </script>

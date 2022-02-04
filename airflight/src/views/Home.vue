@@ -11,7 +11,7 @@
           </div>
           <div class="col-md-6">
             <h3>Learn More About us</h3>
-            <!-- <div v-if="user">Hello {{user.email}}</div> -->
+            <!-- <div v-if="user.data">Hello {{ user.data.email}}</div> -->
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quaerat voluptate iusto? Nihil voluptas vitae veritatis magnam reprehenderit, reiciendis ex? Libero quasi natus veniam voluptatum, voluptas exercitationem ratione consectetur et!
             </p>
@@ -36,11 +36,11 @@ export default {
   components: {
     Hero,Login,Products
   },
-  computed: {
-    // ...mapGetters({
-    //   user: "user",
-    // }),
-  }
+  // computed: {
+  //   ...mapGetters({
+  //     user: "user",
+  //   }),
+  // }
 };
 </script>
 

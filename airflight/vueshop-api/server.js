@@ -4,6 +4,7 @@ import getAuthToken from './api/middleware/getAuthToken';
 import usersRouter from './api/routes/usersRoute'
 import cors from 'cors';
 import helmet from 'helmet'
+import vueshopRoute from './api/routes/vueshopRoute';
 
 const port = process.env.PORT || 4000;
 
@@ -26,6 +27,8 @@ app.use(getAuthToken);
 // app.use(checkIfAuthenticated);
 
 app.use('/users', usersRouter);
+
+app.use('/vueshop', vueshopRoute)
 
 app.listen(port, () => {
     console.log(`Vue Shop Apis running on port ${port}`);

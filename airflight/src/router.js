@@ -8,6 +8,7 @@ import firebase from 'firebase/compat/app';
 import Profile from './views/Profile.vue';
 import Orders from './views/Orders.vue';
 import About from './views/About.vue';
+import List from './views/List.vue'
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ const router = new Router({
             path: "/about",
             name: "about",
             component: About
+        },
+        {
+            path: "/list",
+            name: "list",
+            component: List
         },
         {
             path:"/admin",
