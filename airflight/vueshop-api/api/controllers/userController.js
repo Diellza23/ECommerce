@@ -3,7 +3,7 @@ import registerUserSchema from '../validator/userValidation/registerUserSchema'
 import setUserRole from "../utility/setUserRole";
 
 
-const earlySupporter = ['diellza@gmail.com']
+// const earlySupporter = ['diellza@gmail.com']
 
 const userController = {
     register: async(req, res) => {
@@ -25,7 +25,7 @@ const userController = {
                 setUserRole(user, {admin: true});
             }
 
-            if(earlySupporter.includes(user.email)){
+            else{
                 setUserRole(user,{earlySupporter: true});
             }
 

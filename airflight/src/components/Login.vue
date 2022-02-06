@@ -140,14 +140,14 @@
 </template>
 
 <script>
-import firebase from "firebase/compat/app";
+// import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import $ from "jquery";
-import {db} from '../main'
+// import {db} from '../main'
 // import axios from 'axios'
 import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
 
-// import apiRequest from '@/utility/apiRequest/apiRequest';
+import apiRequest from '@/utility/apiRequest/apiRequest';
 
 export default {
   name: "Login",
@@ -162,6 +162,7 @@ export default {
       error:null
     };
   },
+  
   methods: {
     // async createUser() {
     //   try{
@@ -175,12 +176,43 @@ export default {
     //     alert("Email address taken")
     //   }
     // },
+    async createUser(){
+      try{
+        await apiRequest.post('/users/register',{
+          email: this.email,
+          password: this.password
+        })
+
+        if(this.email.includes('ubt-uni.net')){
+          this.$router.replace('admin'); 
+          location.reload();
+        }
+        else{
+          this.$router.replace('about');
+          location.reload();
+        }
+         $('#login').modal('hide');
+
+      }
+      catch(err){
+        this.error = err.response.data.error;
+        alert("Email address taken")
+      }
+    },
 
     async loginUser(){
         const auth = getAuth();
         try{
           await signInWithEmailAndPassword(auth, this.email, this.password)
-          this.$router.replace('list')
+          if(this.email.includes('ubt-uni.net')){
+              this.$router.replace('admin')
+              location.reload();
+          }
+          else{
+            this.$router.replace('about')
+            location.reload();
+          }
+          
         }
         catch(err){
             this.error = err
@@ -207,39 +239,47 @@ export default {
       //               });
       // },
       ,
-    createUser() {
-      firebase.auth().createUserWithEmailAndPassword(
-        this.email, 
-        this.password
-        )
-        .then((user) => {
-          $("#login").modal("hide");
-          // console.log(user);
+  //   createUser() {
+  //     firebase.auth().createUserWithEmailAndPassword(
+  //       this.email, 
+  //       this.password
+  //       )
+        
+  //       .then((user) => {
+  //         $("#login").modal("hide");
 
-          db.collection("profiles").doc(user.user.uid).set({
-            name:this.name
-          })
-          .then(function(){
-            console.log("Document successfully written!");
-          })
-          .catch(function(error){
-            console.error("Error writing doc: ",error)
-          })
-          
-          this.$router.replace('admin');
-          location.reload();
-        })
-        .catch(function (error) {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          if (errorCode == "auth/weak-password") {
-            alert("The password is too weak.");
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);
-        });
-    },
+  //         db.collection("profiles").doc(user.user.uid).set({
+  //           name:this.name
+  //         })
+  //         .then(function(){
+  //           console.log("Document successfully written!");
+  //         })
+  //         .catch(function(error){
+  //           console.error("Error writing doc: ",error)
+  //         })
+
+  //         if(this.email.includes('ubt-uni.net')){
+  //           this.$router.replace('admin')
+  //         }
+
+  //         else{
+  //           this.$router.replace('about')
+  //         }
+  //         location.reload();
+  //         // this.$router.replace('admin');
+           
+  //       })
+  //       .catch(function (error) {
+  //         var errorCode = error.code;
+  //         var errorMessage = error.message;
+  //         if (errorCode == "auth/weak-password") {
+  //           alert("The password is too weak.");
+  //         } else {
+  //           alert(errorMessage);
+  //         }
+  //         console.log(error);
+  //       });
+  //   },
   },
 };
 </script>
