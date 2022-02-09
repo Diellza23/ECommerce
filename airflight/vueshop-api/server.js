@@ -4,7 +4,11 @@ import getAuthToken from './api/middleware/getAuthToken';
 import usersRouter from './api/routes/usersRoute'
 import cors from 'cors';
 import helmet from 'helmet'
+import mongoose from 'mongoose'
 import vueshopRoute from './api/routes/vueshopRoute';
+
+const connection = await mongoose.connect("mongodb//localhost:27017/OnlineShop")
+console.log("Connected to mongodb")
 
 const port = process.env.PORT || 4000;
 

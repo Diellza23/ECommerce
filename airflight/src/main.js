@@ -13,12 +13,13 @@ import 'bootstrap';
 import './assets/app.scss';
 import 'firebase/compat/storage'
 import {getAuth,onAuthStateChanged} from 'firebase/auth'
-import store from './store/index';
+import storeI from './store/index';
 // import {getApp} from 'firebase/app'
 // import {getAuth, connectAuthEmulator} from 'firebase/auth';
 // import {getFirestore, connectFirestoreEmulator} from 'firebase/firestore'
 // import {getFunctions, connectFunctionsEmulator} from 'firebase/functions'
 
+import store from './store.js'
 
 Vue.use(VueFirestore, {
   key: 'id',
@@ -28,7 +29,17 @@ Vue.use(VueFirestore, {
 window.Swal = Swal;
 
 Vue.use(VueFirestore)
+
+Vue.component("mini-cart", require('./components/MiniCart.vue').default);
+Vue.component("add-to-cart", require('./components/AddToCart.vue').default);
 Vue.component("Navbar", require('./components/Navbar.vue').default);
+Vue.component("products-list", require('./sections/ProductsList.vue').default);
+
+import Vue2Filters from 'vue2-filters'
+Vue.use(Vue2Filters)
+// import VueCarousel  from 'vue-carousel';
+// Vue.use(VueCarousel)
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLEvrn8vnVrW9Y46LSxfbMyHlVe2Y4Zpo",
@@ -42,7 +53,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 onAuthStateChanged(getAuth(),(user) => {
-  store.dispatch("fetchUser", user);
+  storeI.dispatch("fetchUser", user);
 });
 
 // const auth = getAuth();
@@ -81,6 +92,7 @@ firebase.auth().onAuthStateChanged(function(){
   if(!app){
     new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
   }
