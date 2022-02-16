@@ -7,8 +7,8 @@ import helmet from 'helmet'
 import mongoose from 'mongoose'
 import vueshopRoute from './api/routes/vueshopRoute';
 
-const connection = await mongoose.connect("mongodb//localhost:27017/OnlineShop")
-console.log("Connected to mongodb")
+// mongoose.connect("mongodb//localhost:27017/OnlineShop")
+// console.log("Connected to mongodb")
 
 const port = process.env.PORT || 4000;
 

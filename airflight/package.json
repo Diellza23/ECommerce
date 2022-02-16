@@ -26,6 +26,7 @@
     "vue-carousel": "^0.18.0",
     "vue-editor": "^0.0.0",
     "vue-firestore": "^0.3.30",
+    "vue-form-error": "^1.0.10",
     "vue-router": "^3.5.3",
     "vue2-editor": "^2.10.3",
     "vue2-filters": "^0.14.0",

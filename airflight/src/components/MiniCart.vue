@@ -12,9 +12,10 @@
                 <div class="modal-body">
                     <ul>
                     <li v-for="item in this.$store.state.cart" :key="item" class="media">
-                        <img :src="item.productImage" width="80px" class="align-self-center">
+                        <img :src="item.productImage" width="80px" class="align-self-center mr-3">
                         <div class="media-body">
                             <h5 class="mt-0">{{item.productName}}</h5>
+                            <span style="float:right" class="float-right" @click="$store.commit('removeFromCart', item)">X</span>
                             <p class="mt-0">{{item.productPrice | currency}}</p>
                             <p class="mt-0">Quantity : {{item.productQuantity }}</p>
                         </div>
@@ -22,8 +23,8 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
-                    <button type="button" class="btn btn-primary" >Checkout</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                    <button type="button" class="btn btn-primary" @click="checkout">Checkout</button>
                 </div>
                 </div>
             </div>
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 
 export default {
     name:"MiniCart",
@@ -40,7 +42,11 @@ export default {
         msg:String
     },
     methods: {
-       
+
+       checkout(){
+           $('#miniCart').modal('hide')
+            this.$router.push('checkout')    
+       }
     }
 }
 </script>

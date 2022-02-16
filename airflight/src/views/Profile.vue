@@ -42,31 +42,32 @@
                         
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text" name="" v-model="profile.name" placeholder="Full name" class="form-control">
+                            <input type="text"  v-model="profile.name" placeholder="Full name" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text"  v-model="profile.phone" placeholder="Phone" class="form-control">
+                            <input type="text" v-model="profile.phone" placeholder="Phone" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-12">
                           <div class="form-group">
-                            <input type="text"  v-model="profile.address" placeholder="Address" class="form-control">
+                            <input type="text" v-model="profile.address" placeholder="Address" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-8">
                           <div class="form-group">
-                            <input type="text"  v-model="profile.postCode" placeholder="Postcode" class="form-control">
+                            <input type="text" v-model="profile.postcode" placeholder="Postcode" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-4">
                           <div class="form-group">
-                              <input type="submit" @click="updateProfile" value="Save Changes" class="btn btn-primary w-100">
+                              <button type="submit" @click="updateProfile()" value="Save Changes" class="btn btn-primary w-100">Save</button>
+                              <!-- <button @click="updateProduct()" type="button" class="btn btn-primary" v-if="modal == 'edit'">Apply Changes</button> -->
                           </div>
                         </div>
 
@@ -80,18 +81,18 @@
                       <div class="row">
                         <div class="col-md-">
                             <div class="alert alert-info">
-                              Please use the Reset password email button for reseting the password. The form doens't work currently
+                              Please use the Reset password email button for reseting the password.
                             </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text"  v-model="account.name" placeholder="User name" class="form-control">
+                            <input type="text" v-model="account.name" placeholder="User name" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text"  v-model="account.email" placeholder="Email address" class="form-control">
+                            <input type="text" v-model="account.email" placeholder="Email address" class="form-control">
                           </div>
                         </div>
 
@@ -152,10 +153,10 @@ export default {
   data(){
     return {
         profile: {
-          name:null,
-          phone:null,
-          address:null,
-          postcode:null
+          name:"",
+          phone:"",
+          address:"",
+          postcode:"",
         },
         account:{
             name:null,
@@ -169,11 +170,17 @@ export default {
     }
   },
   firestore(){
-      const user = firebase.auth().currentUser;
+      // const user = firebase.auth().currentUser;
+      // db.collection("profiles").doc(user.uid).update({
+      //   name:this.profile.name,
+      //   postcode: this.profile.postcode,
+      //   phone: this.profile.phone
+      // })
       return {
-        profile: db.collection('profiles').doc(user.uid),
+        profile: db.collection('profiles'),
       }
   },
+  
   methods:{
       resetPassword(){
           const auth = firebase.auth();          
@@ -187,9 +194,31 @@ export default {
           });
       },
       updateProfile(){
-          this.$firestore.profile.update(this.profile);
+        // var user = firebase.auth().currentUser
+        // db.collection("profiles").doc(this.profile).update(this.profile)
+        //  this.$firestore.profile.doc(this.profile).update(this.profile.id);
+        
+        //REMINDER nese nuk behen update krejt fields gjun error :)
+          firebase.firestore();
+          db.collection('profiles').doc(this.profile.id).set({
+            name: this.profile.name,
+            phone: this.profile.phone,
+            address: this.profile.address,
+            postcode: this.profile.postcode
+          }).then(() => {
+            console.log("document updated successfully check firestore")
+            Toast.fire({
+              icon:'success',
+              title: 'Updated successfully'
+      })
+          }).catch((err) => {
+            console.log("An error occurred while updateing", + err.message)
+          })
+
       },
-      uploadImage(){}
+      uploadImage(){
+
+      }
   },
   created(){
   }

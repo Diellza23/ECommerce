@@ -7,11 +7,7 @@
               <div class="col-md-4" v-for="product in products" :key="product">
                   <div class="card product-item">
 
-                        <!-- <carousel :perPage="1">
-                          <slide v-for="(image, index) in product.images" v-bind:key="index.id">
-                                <img :src="image" class="card-img-top" alt="..." width="250px">
-                          </slide>
-                        </carousel> -->
+                        
                         <div>
                         <VueSlickCarousel :arrows="true" :dots="true">
                               <div v-for="(image, index) in product.images" v-bind:key="index.id">
@@ -37,10 +33,8 @@
                         </div>
                     </div>
               </div>
-
           </div> 
       </div>
-    
   </div>
 </template>
 
@@ -48,7 +42,6 @@
 import {db} from '../main'
 import VueSlickCarousel from 'vue-slick-carousel'
   import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-  // optional style for arrows & dots
   import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 

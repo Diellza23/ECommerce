@@ -29,9 +29,10 @@ const getters = {
 
 export default {
     state,
+    getters,
     mutations,
     actions,
-    getters
+    
 }
 
 // export default module;

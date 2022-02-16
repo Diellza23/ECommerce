@@ -19,10 +19,8 @@
                         <img class="img-responsive img-rounded" src="/img/user.png" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name">Diellza
-                            <strong>Smith</strong>
-                        </span>
                         <span class="user-role"> {{email}} </span>
+                            <strong>Administrator</strong>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span>
@@ -96,7 +94,6 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import $ from "jquery";
-//  import Hero from "@/components/Hero.vue";
 
 export default {
   name: "admin",
@@ -107,7 +104,6 @@ export default {
       }
   },
   components: {
-    //  Hero
   },
   methods:{
       closeMenu(){
@@ -121,7 +117,8 @@ export default {
            .catch((err) => {
                console.log(err);
            });
-       }
+       },
+       
   },
   created(){
       var user = firebase.auth().currentUser;

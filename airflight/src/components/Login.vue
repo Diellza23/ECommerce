@@ -202,6 +202,7 @@ export default {
 
     async loginUser(){
         const auth = getAuth();
+
         try{
           await signInWithEmailAndPassword(auth, this.email, this.password)
           if(this.email.includes('ubt-uni.net')){
@@ -216,6 +217,7 @@ export default {
         }
         catch(err){
             this.error = err
+            alert(err)
         }
           
     }
