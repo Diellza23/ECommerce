@@ -1,3 +1,7 @@
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+// Vue.use(Vuex)
+
 const state = () => ({
     user: {
         loggedIn: false,
@@ -32,7 +36,6 @@ export default {
     getters,
     mutations,
     actions,
-    
 }
 
 // export default module;

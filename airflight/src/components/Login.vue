@@ -146,6 +146,7 @@ import $ from "jquery";
 // import {db} from '../main'
 // import axios from 'axios'
 import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
+// import registerUser from '../utility/apiRequest/user/registerUser'
 
 import apiRequest from '@/utility/apiRequest/apiRequest';
 
@@ -166,22 +167,26 @@ export default {
   methods: {
     // async createUser() {
     //   try{
-    //     await apiRequest.registerUser(this.email,this.password)
-    //       $('#login').modal('hide');
-    //       this.$router.replace('about');  
-    //     //  this.$router.replace({name: 'Listing'});
+    //     await registerUser(this.email,this.password)
+    //       $('#login').modal('hide')
+    //       this.$router.replace('about')
     //   }
     //   catch(err){
     //     this.error = err.response.data.error;
-    //     alert("Email address taken")
+    //     alert(err.message)
     //   }
     // },
     async createUser(){
+      const auth = getAuth();
       try{
-        await apiRequest.post('/users/register',{
+        const res = await apiRequest.post('/users/register',{
           email: this.email,
           password: this.password
-        })
+        }) 
+        
+        if(res){
+          await signInWithEmailAndPassword(auth, this.email, this.password)
+        }
 
         if(this.email.includes('ubt-uni.net')){
           this.$router.replace('admin'); 
@@ -196,7 +201,7 @@ export default {
       }
       catch(err){
         this.error = err.response.data.error;
-        alert("Email address taken")
+        alert(err.message)
       }
     },
 
@@ -205,6 +210,7 @@ export default {
 
         try{
           await signInWithEmailAndPassword(auth, this.email, this.password)
+          
           if(this.email.includes('ubt-uni.net')){
               this.$router.replace('admin')
               location.reload();
@@ -246,9 +252,10 @@ export default {
   //       this.email, 
   //       this.password
   //       )
-        
   //       .then((user) => {
-  //         $("#login").modal("hide");
+          
+  //         $("#login").modal("hide")
+          
 
   //         db.collection("profiles").doc(user.user.uid).set({
   //           name:this.name
@@ -256,6 +263,7 @@ export default {
   //         .then(function(){
   //           console.log("Document successfully written!");
   //         })
+          
   //         .catch(function(error){
   //           console.error("Error writing doc: ",error)
   //         })

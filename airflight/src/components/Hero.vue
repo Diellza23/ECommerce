@@ -5,7 +5,7 @@
             <div class="col-md-5">
               <div class="hero-content">
                 <h1 class="hero-title">
-                  Vue Shop For Developers
+                  Order Online In Our Shop
                 </h1>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos numquam tempora, iure delectus totam minus quam aperiam ratione dolores magni voluptates ut necessitatibus odio ipsum fuga, voluptas ab praesentium nihil?

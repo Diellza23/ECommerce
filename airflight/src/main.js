@@ -21,6 +21,9 @@ import storeI from './store/index';
 
 import store from './store.js'
 
+
+
+
 Vue.use(VueFirestore, {
   key: 'id',
   enumerable: true

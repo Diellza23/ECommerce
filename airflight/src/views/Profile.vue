@@ -30,8 +30,6 @@
               <button class="nav-link" type="button" id="account-tab" data-bs-toggle="tab" data-bs-target="#account" role="tab" aria-controls="account" >Account settings</button>
             </li>
 
-            
-           
           </ul>
 
             <div class="tab-content" id="myTabContent">
@@ -39,9 +37,13 @@
 
                   <div class="container">
                       <div class="row">
+
+                        
                         
                         <div class="col-md-6">
                           <div class="form-group">
+
+
                             <input type="text"  v-model="profile.name" placeholder="Full name" class="form-control">
                           </div>
                         </div>
@@ -66,7 +68,7 @@
 
                         <div class="col-md-4">
                           <div class="form-group">
-                              <button type="submit" @click="updateProfile()" value="Save Changes" class="btn btn-primary w-100">Save</button>
+                              <button type="button" @click="updateProfile()" value="Save Changes" class="btn btn-primary w-100">Save</button>
                               <!-- <button @click="updateProduct()" type="button" class="btn btn-primary" v-if="modal == 'edit'">Apply Changes</button> -->
                           </div>
                         </div>
@@ -85,6 +87,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                          
                           <div class="form-group">
                             <input type="text" v-model="account.name" placeholder="User name" class="form-control">
                           </div>
@@ -152,6 +155,7 @@ export default {
   },
   data(){
     return {
+      profiles: [],
         profile: {
           name:"",
           phone:"",
@@ -177,6 +181,7 @@ export default {
       //   phone: this.profile.phone
       // })
       return {
+        profiles: db.collection('profiles'),
         profile: db.collection('profiles'),
       }
   },

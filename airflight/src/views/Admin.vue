@@ -115,7 +115,7 @@ export default {
                this.$router.replace('/');
            })
            .catch((err) => {
-               console.log(err);
+               alert(err.message);
            });
        },
        

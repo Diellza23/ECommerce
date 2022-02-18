@@ -95,7 +95,7 @@ router.beforeEach((to, from ,next) => {
                 next('/admin');
             }
             else{
-                next();
+                next('/about');
             }
         }
         else{
