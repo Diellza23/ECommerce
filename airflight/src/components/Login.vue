@@ -148,7 +148,7 @@ import $ from "jquery";
 import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
 // import registerUser from '../utility/apiRequest/user/registerUser'
 
-import apiRequest from '@/utility/apiRequest/apiRequest';
+import apiCaller from '@/utility/apiRequest/apiCaller';
 
 export default {
   name: "Login",
@@ -179,7 +179,7 @@ export default {
     async createUser(){
       const auth = getAuth();
       try{
-        const res = await apiRequest.post('/users/register',{
+        const res = await apiCaller.post('/users/register',{
           email: this.email,
           password: this.password
         }) 

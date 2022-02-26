@@ -16,7 +16,7 @@
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.2",
-    "firebase": "^9.6.3",
+    "firebase": "^9.6.7",
     "jquery": "^3.6.0",
     "mongoose": "^6.1.6",
     "morgan": "^1.10.0",
@@ -28,6 +28,7 @@
     "vue-firestore": "^0.3.30",
     "vue-form-error": "^1.0.10",
     "vue-router": "^3.5.3",
+    "vue2-dropzone": "^3.6.0",
     "vue2-editor": "^2.10.3",
     "vue2-filters": "^0.14.0",
     "vuex": "^3.6.2"

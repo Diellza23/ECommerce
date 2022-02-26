@@ -1,9 +1,9 @@
-import apiRequest from '../apiRequest'
+import apiCaller from "../apiCaller";
 
-const registerUser = async (email,password) => 
-       await apiRequest.post('/users/register', {
-        email,
-        password
-    })
+const registerUser = async (email, password) =>
+  await apiCaller.post("/users/register", {
+    email,
+    password,
+  });
 
-export default registerUser
+export default registerUser;
