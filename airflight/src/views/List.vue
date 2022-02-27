@@ -1,70 +1,110 @@
 <template>
-    <section>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-4"
+        v-for="field in fields"
+        :key="field"
+        style="margin-bottom: 20px"
+      >
+        <div class="card" style="width: 18rem">
+          <!-- <img
+            class="card-img-top"
+            src=""
+          />  -->
+          <div class="card-body">
+            <h5 class="card-title">Type: {{ field.type }}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Price: {{ field.price }}</li>
+            <li class="list-group-item">Sqr: {{ field.squareMeters }}</li>
+            <li class="list-group-item">Number of rooms: {{ field.rooms }}</li>
+          </ul>
+          <div class="card-body">
+            <!-- <router-link :to="{ name: 'View', params: { id: vueshop._id } }"
+              ><i class="fa fa-chart-line"></i>View</router-link
+            > -->
 
-        <h1 > Hello {{email}}, these are the available</h1>
-
-
-        <div class="row justify-content-center">
-            <div class="col-4 col-md-2 p-5 p-md-4 justify-content-center">
-                <table>
-                    <tr>
-                        <th>Property type</th>
-                        <th>Rooms</th>
-                        <th>Sqr meters</th>
-                        <th>Price</th>
-                    </tr>
-                    <tr v-for="entry in vueshopList" :key="entry.id">
-                        <td>
-                            {{entry.type}}
-                        </td>
-                        <td>
-                            {{entry.rooms}}
-                        </td>
-                        <td>
-                            {{entry.squareMeters}}
-                        </td>
-                        <td>
-                            {{entry.price}}
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            <!-- <router-link to="{ name: 'View', params: { id: vueshop._id } }">
+              <i class="fa fa-chart-line"></i>View
+            </router-link> -->
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+
+    <!-- <div class="row justify-content-center">
+      <div class="col-4 col-md-2 p-5 p-md-4 justify-content-center"> -->
+    <!-- <table>
+          <tr>
+            <th>Property type</th>
+            <th>Rooms</th>
+            <th>Sqr meters</th>
+            <th>Price</th>
+          </tr>
+
+          <tr v-for="field in fields" :key="field">
+            <td>
+              {{ field.type }}
+            </td>
+            <td>
+              {{ field.squareMeters }}
+            </td>
+            <td>
+              {{ field.price }}
+            </td>
+            <td>
+              {{ field.squareMeters }}
+            </td>
+            <td>
+              {{ field.files }}
+            </td>
+          </tr>
+        </table> -->
+    <!-- </div>
+    </div> -->
+  </div>
 </template>
 
 <script>
-import apiRequest from '../utility/apiRequest'
-// import {mapGetters} from "vuex";
-import firebase from 'firebase/compat/app'
-
+import apiRequest from "../utility/apiRequest";
+import axios from "axios";
 export default {
-    /*created(){
-       this.fetchVueshop();
-       
-    },*/
-    data(){
-        return {
-            email: "null"
-        }
-    },
-    created(){
-      var user = firebase.auth().currentUser;
-      this.email = user.email;
-    },
-    computed: {
-        // ...mapGetters({
-        //     user: "user",
-        // })
-    }, 
-    
-    methods:{
-        async fetchVueshop(){
-            const result = await apiRequest.getVueShopList()
-            this.$store.dispatch("fetchVueShop", result)
-        },
+  props: {
+    vueshop: Object,
+  },
+  components: {},
+  created() {
+    axios
+      .get(`http://localhost:4000/vueshop/list`)
+      .then((response) => {
+        this.fields = response.data;
+      })
+      .catch((e) => {
+        this.errors.push(e);
+      });
 
-    }
+    // this.vueshopList = await apiRequest.getVueShopList();
+    // this.fetchVueshop();
+  },
+  methods: {
+    async fetchVueshop() {
+      this.vueshopList = await apiRequest.getVueShopList();
+      //   const result = await apiRequest.getVueshopList();
+      //   this.$store.dispatch("fetchVueshops", result);
+    },
+  },
+  data() {
+    return {
+      fields: [],
+    };
+  },
+  computed: {
+    src() {
+      const filename = this.vueshop.files?.split(";")[0];
 
-}
+      return filename ? `http://localhost:4000/static/${filename}` : null;
+    },
+  },
+};
 </script>

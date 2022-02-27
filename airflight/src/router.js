@@ -10,7 +10,8 @@ import Orders from "./views/Orders.vue";
 import About from "./views/About.vue";
 import "./views/List.vue";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
-
+import List from "./views/List.vue";
+// import View from "./views/View.vue";
 Vue.use(Router);
 
 const router = new Router({
@@ -28,14 +29,14 @@ const router = new Router({
       name: "about",
       component: About,
     },
-    {
-      path: "/list",
-      name: "list",
-      meta: {
-        isAuthenticated: true,
-      },
-      component: () => import(/*webpackChunkName: "list" */ "./views/List.vue"),
-    },
+    // {
+    //   path: "/list",
+    //   name: "list",
+    //   meta: {
+    //     isAuthenticated: true,
+    //   },
+    //   component: () => import(/*webpackChunkName: "list" */ "./views/List.vue"),
+    // },
 
     {
       path: "/admin",
@@ -43,6 +44,11 @@ const router = new Router({
       component: Admin,
       meta: { isAuthenticated: true },
       children: [
+        {
+          path: "list",
+          name: "list",
+          component: List,
+        },
         {
           path: "overview",
           name: "overview",
@@ -63,30 +69,39 @@ const router = new Router({
           name: "orders",
           component: Orders,
         },
+        {
+          path: "/view/:id",
+          name: "View",
+          component: () =>
+            import(/*webpackChunkName: "view" */ "./views/View.vue"),
+        },
+        {
+          path: "create",
+          name: "Create",
+          component: () =>
+            import(/*webpackChunkName: "create" */ "./views/Create.vue"),
+        },
       ],
     },
     {
       path: "/checkout",
       name: "checkout",
-      component: () => import("./views/Checkout.vue"),
-    },
-    {
-      path: "/view/:id",
-      name: "View",
-      meta: {
-        isAuthenticated: true,
-      },
       component: () => import(/*webpackChunkName: "view" */ "./views/View.vue"),
     },
-    {
-      path: "/create",
-      name: "Create",
-      meta: {
-        isAuthenticated: true,
-      },
-      component: () =>
-        import(/*webpackChunkName: "create" */ "./views/Create.vue"),
-    },
+    // {
+    //   path: "/view/:id",
+    //   name: "View",
+    //   meta: {
+    //     isAuthenticated: true,
+    //   },
+    //   component: () => import(/*webpackChunkName: "view" */ "./views/View.vue"),
+    // },
+    // {
+    //   path: "/create",
+    //   name: "Create",
+    //   component: () =>
+    //     import(/*webpackChunkName: "create" */ "./views/Create.vue"),
+    // },
   ],
 });
 

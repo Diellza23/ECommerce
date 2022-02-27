@@ -1,4 +1,5 @@
 //import database from "../utility/database";
+import FileService from "../../../src/services/FileService";
 import VueshopModel from "../models/VueshopModel";
 import updatedVueshopSchema from "../validator/userValidation/vueshopValidation/updateVueshopSchema";
 
@@ -39,6 +40,65 @@ export default {
 
     const updatedVueshop = await VueshopModel.find({ _id: vueshop._id });
     //database.collection("vueshop").update(vueshop);
+
+    return res.json(updatedVueshop);
+  },
+
+  uploadFile: async (req, res) => {
+    const { id } = req.params;
+    const receivedFiles = [req.files.file];
+
+    try {
+      const files = await FileService.uploadFiles(receivedFiles);
+
+      console.log("files - ", files);
+
+      const vueshop = await VueshopModel.find({ _id: id }, { files: 1 });
+      const oldFiles = vueshop.files;
+
+      const newFiles = `${oldFiles || ""}${oldFiles ? ";" : ""}${files}`;
+
+      await VueshopModel.updateOne({ _id: id }, [
+        {
+          $set: { files: newFiles },
+        },
+      ]);
+
+      const updatedVueshop = await VueshopModel.find({ _id: id });
+
+      return res.json(updatedVueshop);
+    } catch (err) {
+      res.status(500).json({ err: err.toString() });
+    }
+  },
+
+  deleteFile: async (req, res) => {
+    const { vueshopId, filename } = req.params;
+
+    FileService.deleteFiles([filename]);
+
+    const vueshopData = await VueshopModel.findOne(
+      { _id: vueshopId },
+      { files: 1 }
+    );
+
+    const updatedFilenames = vueshopData.files
+      .replace(`${filename}; `, "")
+      .replace(filename, "");
+
+    await VueshopModel.updateOne(
+      { _id: vueshopId },
+      {
+        files: updatedFilenames,
+      }
+    );
+
+    const updatedVueshop = await VueshopModel.findOne(
+      { _id: vueshopId },
+      {
+        files: updatedFilenames,
+      }
+    );
 
     return res.json(updatedVueshop);
   },

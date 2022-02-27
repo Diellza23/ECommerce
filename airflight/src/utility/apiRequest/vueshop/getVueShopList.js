@@ -1,9 +1,10 @@
-import apiCaller from "../apiCaller";
+// import apiCaller from "../apiCaller";
 import { getAuth } from "firebase/auth";
+import apiRequest from "../index";
 
 const getVueShopList = async () => {
   const token = await getAuth().currentUser.getIdToken();
-  const result = await apiCaller.get("vueshop/list", {
+  const result = await apiRequest.get("vueshop/list", {
     headers: {
       authorization: `Bearer ${token}`,
     },
