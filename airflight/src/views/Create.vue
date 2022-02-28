@@ -1,9 +1,14 @@
 <template>
   <section>
-    <div class="row justify-content-center">
-      <div class="col-8 col-md-6 col-lg-5">
-        <form @submit.prevent="createVueshop">
-          <div class="form-group">
+    <div class="container">
+      <h3 style="margin-bottom: 50px">Add Vueshop</h3>
+
+      <form @submit.prevent="createVueshop">
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault01" style="padding-bottom: 10px"
+              >Type:</label
+            >
             <Dropdown
               v-model="form.type"
               :options="[
@@ -12,19 +17,33 @@
               ]"
             />
           </div>
-          <div class="form-group">
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02" style="padding-bottom: 10px"
+              >Square Meters:</label
+            >
             <NumberInput v-model="form.squareMeters" />
           </div>
-
-          <div class="form-group">
-            <NumberInput v-model="form.price" />
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02" style="padding-bottom: 10px"
+              >Number of rooms:</label
+            >
+            <NumberInput v-model="form.rooms" />
           </div>
-
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit">Publish</button>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefaultUsername" style="padding-bottom: 10px"
+              >Price:</label
+            >
+            <div class="input-group" style="padding-bottom: 10px">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend2">$</span>
+              </div>
+              <NumberInput v-model="form.price" />
+            </div>
           </div>
-        </form>
-      </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </form>
     </div>
   </section>
 </template>

@@ -1,56 +1,60 @@
-[debug] [2022-02-27T13:54:59.529Z] ----------------------------------------------------------------------
-[debug] [2022-02-27T13:54:59.530Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DeZzeRt\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2022-02-27T13:54:59.531Z] CLI Version:   10.2.1
-[debug] [2022-02-27T13:54:59.531Z] Platform:      win32
-[debug] [2022-02-27T13:54:59.531Z] Node Version:  v16.13.1
-[debug] [2022-02-27T13:54:59.532Z] Time:          Sun Feb 27 2022 14:54:59 GMT+0100 (Central European Standard Time)
-[debug] [2022-02-27T13:54:59.532Z] ----------------------------------------------------------------------
+[debug] [2022-02-28T12:40:43.559Z] ----------------------------------------------------------------------
+[debug] [2022-02-28T12:40:43.561Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DeZzeRt\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2022-02-28T12:40:43.561Z] CLI Version:   10.2.1
+[debug] [2022-02-28T12:40:43.561Z] Platform:      win32
+[debug] [2022-02-28T12:40:43.561Z] Node Version:  v16.13.1
+[debug] [2022-02-28T12:40:43.563Z] Time:          Mon Feb 28 2022 13:40:43 GMT+0100 (Central European Standard Time)
+[debug] [2022-02-28T12:40:43.563Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-02-27T13:54:59.595Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-02-27T13:54:59.595Z] > authorizing via signed-in user (dk49556@ubt-uni.net)
+[debug] [2022-02-28T12:40:43.639Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-02-28T12:40:43.640Z] > authorizing via signed-in user (dk49556@ubt-uni.net)
 [info] i  emulators: Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage"}}
-[debug] [2022-02-27T13:54:59.623Z] [hub] writing locator at C:\Users\DeZzeRt\AppData\Local\Temp\hub-vue-projectuni.json
+[debug] [2022-02-28T12:40:43.668Z] [hub] writing locator at C:\Users\DeZzeRt\AppData\Local\Temp\hub-vue-projectuni.json
 [warn] !  hosting: The hosting emulator is configured but there is no hosting configuration. Have you run firebase init hosting? {"metadata":{"emulator":{"name":"hosting"},"message":"The hosting emulator is configured but there is no hosting configuration. Have you run \u001b[1mfirebase init hosting\u001b[22m?"}}
 [warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: hosting {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mhosting\u001b[22m"}}
 [info] +  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
-[debug] [2022-02-27T13:54:59.638Z] defaultcredentials: writing to file C:\Users\DeZzeRt\AppData\Roaming\firebase\dk49556_ubt-uni_net_application_default_credentials.json
-[debug] [2022-02-27T13:54:59.640Z] Setting GAC to C:\Users\DeZzeRt\AppData\Roaming\firebase\dk49556_ubt-uni_net_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\DeZzeRt\\AppData\\Roaming\\firebase\\dk49556_ubt-uni_net_application_default_credentials.json"}}
-[debug] [2022-02-27T13:54:59.642Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni/adminSdkConfig [none]
-[debug] [2022-02-27T13:55:00.005Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni/adminSdkConfig 200
-[debug] [2022-02-27T13:55:00.006Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni/adminSdkConfig {"projectId":"vue-projectuni","storageBucket":"vue-projectuni.appspot.com","locationId":"us-central"}
-[debug] [2022-02-27T13:55:00.019Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2022-02-27T13:55:00.019Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-02-27T13:55:00.019Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",8080,"--rules","C:\\Users\\DeZzeRt\\Desktop\\VueProject\\Betimi\\airflight\\firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"C:\\\\Users\\\\DeZzeRt\\\\Desktop\\\\VueProject\\\\Betimi\\\\airflight\\\\firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[debug] [2022-02-28T12:40:43.695Z] defaultcredentials: writing to file C:\Users\DeZzeRt\AppData\Roaming\firebase\dk49556_ubt-uni_net_application_default_credentials.json
+[debug] [2022-02-28T12:40:43.696Z] Setting GAC to C:\Users\DeZzeRt\AppData\Roaming\firebase\dk49556_ubt-uni_net_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\DeZzeRt\\AppData\\Roaming\\firebase\\dk49556_ubt-uni_net_application_default_credentials.json"}}
+[debug] [2022-02-28T12:40:43.697Z] > refreshing access token with scopes: []
+[debug] [2022-02-28T12:40:43.698Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-02-28T12:40:43.906Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Mon, 28 Feb 2022 12:40:43 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-02-28T12:40:43.920Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni/adminSdkConfig [none]
+[debug] [2022-02-28T12:40:44.407Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni/adminSdkConfig 200
+[debug] [2022-02-28T12:40:44.407Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni/adminSdkConfig {"projectId":"vue-projectuni","storageBucket":"vue-projectuni.appspot.com","locationId":"us-central"}
+[debug] [2022-02-28T12:40:44.426Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-02-28T12:40:44.426Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-28T12:40:44.426Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",8080,"--rules","C:\\Users\\DeZzeRt\\Desktop\\VueProject\\Betimi\\airflight\\firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"C:\\\\Users\\\\DeZzeRt\\\\Desktop\\\\VueProject\\\\Betimi\\\\airflight\\\\firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
 [info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
-[debug] [2022-02-27T13:55:01.079Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni [none]
-[debug] [2022-02-27T13:55:01.452Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni 200
-[debug] [2022-02-27T13:55:01.452Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni {"projectId":"vue-projectuni","projectNumber":"876452602881","displayName":"vue-projectuni","name":"projects/vue-projectuni","resources":{"hostingSite":"vue-projectuni","storageBucket":"vue-projectuni.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
-[debug] [2022-02-27T13:55:01.452Z] database rules config:  []
+[debug] [2022-02-28T12:40:46.012Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni [none]
+[debug] [2022-02-28T12:40:46.372Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni 200
+[debug] [2022-02-28T12:40:46.372Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/vue-projectuni {"projectId":"vue-projectuni","projectNumber":"876452602881","displayName":"vue-projectuni","name":"projects/vue-projectuni","resources":{"hostingSite":"vue-projectuni","storageBucket":"vue-projectuni.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2022-02-28T12:40:46.372Z] database rules config:  []
 [warn] !  database: Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"database"},"message":"Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
-[debug] [2022-02-27T13:55:01.454Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2022-02-27T13:55:01.454Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-02-27T13:55:01.454Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2022-02-27T13:55:01.455Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.7.3.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.7.3.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[debug] [2022-02-28T12:40:46.376Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-02-28T12:40:46.376Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-28T12:40:46.376Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2022-02-28T12:40:46.376Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.7.3.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.7.3.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
 [info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2022-02-27T13:55:09.136Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2022-02-27T13:55:09.137Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-02-27T13:55:09.137Z] Starting Pub/Sub Emulator with command {"binary":"C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\pubsub-emulator-0.1.0\\pubsub-emulator\\bin\\cloud-pubsub-emulator.bat","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\pubsub-emulator-0.1.0\\\\pubsub-emulator\\\\bin\\\\cloud-pubsub-emulator.bat\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
+[debug] [2022-02-28T12:40:55.781Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-02-28T12:40:55.781Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-28T12:40:55.781Z] Starting Pub/Sub Emulator with command {"binary":"C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\pubsub-emulator-0.1.0\\pubsub-emulator\\bin\\cloud-pubsub-emulator.bat","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\pubsub-emulator-0.1.0\\\\pubsub-emulator\\\\bin\\\\cloud-pubsub-emulator.bat\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
 [info] i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to \u001b[1mpubsub-debug.log\u001b[22m"}}
-[debug] [2022-02-27T13:55:10.170Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2022-02-27T13:55:10.429Z] Temp file directory for storage emulator: C:\Users\DeZzeRt\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\DeZzeRt\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2022-02-28T12:40:56.830Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-02-28T12:40:57.042Z] Temp file directory for storage emulator: C:\Users\DeZzeRt\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\DeZzeRt\\AppData\\Local\\Temp/firebase/storage/blobs"}}
 [warn] !  hosting: The hosting emulator is configured but there is no hosting configuration. Have you run firebase init hosting? {"metadata":{"emulator":{"name":"hosting"},"message":"The hosting emulator is configured but there is no hosting configuration. Have you run \u001b[1mfirebase init hosting\u001b[22m?"}}
 [warn] !  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
-[debug] [2022-02-27T13:55:11.009Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2022-02-27T13:55:11.010Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2022-02-27T13:55:11.010Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\ui-v1.6.5\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.5\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[debug] [2022-02-28T12:40:57.648Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-02-28T12:40:57.648Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-02-28T12:40:57.649Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\DeZzeRt\\.cache\\firebase\\emulators\\ui-v1.6.5\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\DeZzeRt\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.5\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
 [info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2022-02-27T13:55:11.324Z] Web / API server started at localhost:4001
+[debug] [2022-02-28T12:40:57.929Z] Web / API server started at localhost:4001
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4001\n"}}
 [info] i  functions: Watching "C:\Users\DeZzeRt\Desktop\VueProject\Betimi\airflight\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\DeZzeRt\\Desktop\\VueProject\\Betimi\\airflight\\functions\" for Cloud Functions..."}}
-[debug] [2022-02-27T13:55:11.434Z] Validating nodejs source
+[debug] [2022-02-28T12:40:58.082Z] Validating nodejs source
 [warn] !  functions: package.json indicates an outdated version of firebase-functions.
 Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
-[debug] [2022-02-27T13:55:15.366Z] > [functions] package.json contents: {
+[debug] [2022-02-28T12:41:01.370Z] > [functions] package.json contents: {
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
@@ -78,9 +82,9 @@ Please upgrade using npm install --save firebase-functions@latest in your functi
   },
   "private": true
 }
-[debug] [2022-02-27T13:55:15.366Z] Building nodejs source
-[debug] [2022-02-27T13:55:15.366Z] Analyzing nodejs backend spec
-[debug] [2022-02-27T13:55:15.920Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/vue-projectuni"}}
+[debug] [2022-02-28T12:41:01.370Z] Building nodejs source
+[debug] [2022-02-28T12:41:01.370Z] Analyzing nodejs backend spec
+[debug] [2022-02-28T12:41:01.795Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/vue-projectuni"}}
 [info] +  functions[us-central1-addUserRole]: auth function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mauth\u001b[22m function initialized."}}
 [info] 
 ┌─────────────────────────────────────────────────────────────┐

@@ -7,21 +7,17 @@
           <div class="about-details-cap p-2 pt-3 pl-2 pr-2 pb-0">
             <h4 class="pt-3">Our Mission</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              mollis venenatis quam, vitae commodo arcu gravida ut. Nulla risus
-              lectus, sollicitudin quis ligula in, sagittis fringilla mauris.
-              Proin hendrerit pharetra turpis, a posuere tortor aliquet in.
-              Praesent purus quam, imperdiet ut elit quis, lacinia pulvinar
-              sapien. Curabitur sollicitudin nibh dolor, quis semper ligula
-              consectetur sed.
+              To serve consumers through online and physical stores and focus on
+              selection, price, and convenience
             </p>
           </div>
 
           <div class="about-details-cap p-2 pt-3 pl-2 pr-2 pb-3">
             <h4>Our Vision</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
-              iaculis massa, eget laoreet sem. Fusce at consectetur velit.
+              Our vision is to be earth's most customer centric company; to
+              build a place where people can come to find and discover anything
+              they might want to buy from tech online
             </p>
             <p>
               Praesent pulvinar pulvinar fringilla. Fusce porttitor odio in
@@ -33,12 +29,7 @@
           </div>
         </div>
         <div
-          class="
-            col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12
-            pt-4
-            map
-            img-fluid
-          "
+          class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 pt-4 map img-fluid"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2937.6209566262937!2d21.12899141586645!3d42.584567179172396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549d539fe9170f%3A0x96a018472c30145!2sGjirafa%2C%20Inc!5e0!3m2!1sen!2s!4v1621186396607!5m2!1sen!2s"
@@ -94,12 +85,10 @@
 </template>
 
 <script>
-
 export default {
   name: "about",
 };
 </script>
-
 
 <style scoped>
 .icon {
@@ -175,7 +164,6 @@ p {
   font-weight: 400;
 }
 </style>
-
 
 <script>
 import Navbar from "../components/Navbar.vue";
