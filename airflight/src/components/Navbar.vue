@@ -31,9 +31,12 @@
               >
             </li>
           </ul>
+
           <form class="form-inline my-2 my-lg-0">
             <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+
             <a
+              v-if="!email"
               class="btn btn-outline-success my-2 my-sm-0"
               data-bs-toggle="modal"
               data-bs-target="#login"
@@ -48,18 +51,63 @@
             </a>
           </form>
         </div>
+
+        <div>
+          <ul
+            v-if="email"
+            class="navbar-nav d-flex flex-row align-items-center"
+          >
+            <div class="mr-4">
+              <p class="mb-0" style="color: white; padding-right: 10px">
+                Hello {{ email }}
+              </p>
+            </div>
+            <li class="nav-item dropdown">
+              <img
+                class="rounded-circle dropdown-bs-toggle"
+                src="../../public/img/simpleuser.png"
+                style="width: 35px; height: 30px"
+                alt="user-avatar"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+
 export default {
   name: "Navbar",
   props: {
     msg: String,
   },
-  components: {},
+  data() {
+    return {
+      name: null,
+      email: null,
+    };
+  },
+  logout() {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        this.$router.replace("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  },
+
+  created() {
+    var user = firebase.auth().currentUser;
+    this.email = user.email;
+  },
 };
 </script>
 
