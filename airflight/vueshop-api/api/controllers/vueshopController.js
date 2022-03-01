@@ -8,15 +8,12 @@ export default {
     //ne postman vueshop/get
     const list = await VueshopModel.find();
 
-    //database.collection("vueshop").list();
-
     return res.json(list);
   },
   get: async (req, res) => {
     //  /:id
     const { id } = req.params;
     const foundItem = await VueshopModel.findOne({ _id: id });
-    //database.collection("vueshop").findOne(id);
     return res.json(foundItem);
   },
   post: async (req, res) => {
@@ -39,7 +36,6 @@ export default {
     await VueshopModel.updateOne({ _id: vueshop._id }, vueshop);
 
     const updatedVueshop = await VueshopModel.find({ _id: vueshop._id });
-    //database.collection("vueshop").update(vueshop);
 
     return res.json(updatedVueshop);
   },

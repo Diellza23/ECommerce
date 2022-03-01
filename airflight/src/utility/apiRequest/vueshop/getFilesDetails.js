@@ -6,7 +6,6 @@ const getFilesDetails = (filenamesAsString) => {
   const promisesArray = filenamesAsString
     .split(FILE_SEPARATOR)
     .map(async (filename) => {
-      //errori qitu
       const fileUrl = `static/${filename}`;
       const response = await apiCaller.get(fileUrl);
 

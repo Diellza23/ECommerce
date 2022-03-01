@@ -291,24 +291,12 @@ export default {
         title: "Updated successfully",
       });
       $("#product").modal("hide");
-
-      // db.collection("products").doc(this.activeItem).update(this.product)
-      // .then(() => {
-      //   $('#edit').modal('hide');
-      //   this.watcher();
-      //   console.log("Document successfully updated");
-      // })
-      // .catch(function(error) {
-      //   console.error("Error updating document", error);
-      // })
     },
 
     editProduct(product) {
       this.modal = "edit";
       this.product = product;
       $("#product").modal("show");
-      // this.product = product.data();
-      // this.activeItem = product.id;
     },
     deleteProduct(doc) {
       Swal.fire({
@@ -327,36 +315,9 @@ export default {
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
-
-      // if(confirm("Are u sure?")){
-
-      //   db.collection("products").doc(doc).delete().then(function() {
-      //     console.log("Document succesfully deleted!");
-      //   }).catch(function(error) {
-      //     console.error("Error removing document: ", error);
-      //   });
-      // }else{
-      //   alert("Couldn't delete")
-      // }
     },
-    readData() {
-      //   db.collection("products").get().then((querySnapshot) =>
-      // {
-      //   // this.products = querySnapshot;
-      //   querySnapshot.forEach((doc) => {
-      //      this.products.push(doc);
-      // });
-      // });
-    },
+    readData() {},
     addProduct() {
-      // db.collection("products").add(this.product)
-      // .then((docRef) => {
-      //   console.log("Document:",docRef.id)
-      //   this.readData();
-      // })
-      // .catch(function(error){
-      //   console.error("Error: ", error);
-      // });
       this.$firestore.products.add(this.product);
 
       Toast.fire({

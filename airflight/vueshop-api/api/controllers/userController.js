@@ -1,43 +1,32 @@
-import admin from "../services/firebase"
-import registerUserSchema from '../validator/userValidation/registerUserSchema'
+import admin from "../services/firebase";
+import registerUserSchema from "../validator/userValidation/registerUserSchema";
 import setUserRole from "../utility/setUserRole";
 
-
-// const earlySupporter = ['diellza@gmail.com']
-
 const userController = {
-    register: async(req, res) => {
+  register: async (req, res) => {
+    const validationResult = registerUserSchema.validate(req.body);
 
-        const validationResult = registerUserSchema.validate(req.body)
-        
-        if(validationResult.error){
-            return res.status(400).json({error: validationResult.error});
-        }
-        
-        const {email, password} = req.body;
-        try {
-            const user = await admin.auth().createUser({
-                email,
-                password
-            })
+    if (validationResult.error) {
+      return res.status(400).json({ error: validationResult.error });
+    }
 
-            if(user.email && user.email.includes('ubt-uni.net')){
-                setUserRole(user, {admin: true});
-            }
+    const { email, password } = req.body;
+    try {
+      const user = await admin.auth().createUser({
+        email,
+        password,
+      });
 
-            else{
-                setUserRole(user,{earlySupporter: true});
-            }
+      if (user.email && user.email.includes("ubt-uni.net")) {
+        setUserRole(user, { admin: true });
+      } else {
+        setUserRole(user, { earlySupporter: true });
+      }
 
-            return res.json({user}); 
-        }
-        catch(error)
-        {
-            return res.status(403).json({error: error.message})
-        }
-
-}
-}
-export default userController
-
-
+      return res.json({ user });
+    } catch (error) {
+      return res.status(403).json({ error: error.message });
+    }
+  },
+};
+export default userController;

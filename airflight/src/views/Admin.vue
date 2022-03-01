@@ -73,12 +73,6 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/admin/orders">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span>Orders</span>
-                </router-link>
-              </li>
-              <li>
                 <router-link to="/admin/list">
                   <i class="fa fa-shopping-cart"></i>
                   <span>List</span>

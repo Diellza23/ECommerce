@@ -6,7 +6,6 @@ import Overview from "./views/Overview.vue";
 import Products from "./views/Products.vue";
 // import firebase from 'firebase/compat/app';
 import Profile from "./views/Profile.vue";
-import Orders from "./views/Orders.vue";
 import About from "./views/About.vue";
 import "./views/List.vue";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
@@ -64,23 +63,18 @@ const router = new Router({
           name: "profile",
           component: Profile,
         },
-        {
-          path: "orders",
-          name: "orders",
-          component: Orders,
-        },
 
-        {
-          path: "create",
-          name: "Create",
-          component: () =>
-            import(/*webpackChunkName: "create" */ "./views/Create.vue"),
-        },
         {
           path: "/view/:id",
           name: "View",
           component: () =>
             import(/*webpackChunkName: "view" */ "./views/View.vue"),
+        },
+        {
+          path: "create",
+          name: "Create",
+          component: () =>
+            import(/*webpackChunkName: "create" */ "./views/Create.vue"),
         },
       ],
     },
@@ -88,13 +82,8 @@ const router = new Router({
       path: "/checkout",
       name: "checkout",
       component: () =>
-        import(/*webpackChunkName: "checkout" */ "./views/Checkout.vue"),
+        import(/*webpackChunkName: "view" */ "./views/Checkout.vue"),
     },
-    // {
-    //   path: "view/:id",
-    //   name: "View",
-    //   component: () => import(/*webpackChunkName: "view" */ "./views/View.vue"),
-    // },
     // {
     //   path: "/view/:id",
     //   name: "View",
@@ -104,11 +93,6 @@ const router = new Router({
     //   component: () => import(/*webpackChunkName: "view" */ "./views/View.vue"),
     // },
     // {
-    //   path: "/create",
-    //   name: "Create",
-    //   component: () =>
-    //     import(/*webpackChunkName: "create" */ "./views/Create.vue"),
-    // },
   ],
 });
 

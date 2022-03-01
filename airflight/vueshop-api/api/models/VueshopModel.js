@@ -6,9 +6,9 @@ const schema = mongoose.Schema(
     rooms: Number,
     squareMeters: Number,
     price: Number,
-    // files: String,
-  }
-  // { typeKey: "$type" }
+    files: String,
+  },
+  { typeKey: "$type" }
 );
 
 const model = mongoose.model("vueshops", schema);

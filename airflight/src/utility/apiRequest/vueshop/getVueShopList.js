@@ -1,4 +1,3 @@
-// import apiCaller from "../apiCaller";
 import { getAuth } from "firebase/auth";
 import apiRequest from "../index";
 

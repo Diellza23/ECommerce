@@ -51,11 +51,10 @@
                 role="tabpanel"
                 aria-labelledby="pills-login-tab"
               >
-              
-                <h5 class="text-center" style="font-size:24px;">Login </h5>
+                <h5 class="text-center" style="font-size: 24px">Login</h5>
 
-                <div class="form-group" style="margin-bottom:20px">
-                  <label for="exampleInputEmail1" >Email address</label>
+                <div class="form-group" style="margin-bottom: 20px">
+                  <label for="exampleInputEmail1">Email address</label>
                   <input
                     type="email"
                     v-model="email"
@@ -64,9 +63,8 @@
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
                   />
-                  
                 </div>
-                <div class="form-group"  style="margin-bottom:25px">
+                <div class="form-group" style="margin-bottom: 25px">
                   <label for="exampleInputPassword1">Password</label>
                   <input
                     type="password"
@@ -79,9 +77,14 @@
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-outline-primary" @click="loginUser" style="width:50%">Sign in</button>
+                  <button
+                    class="btn btn-outline-primary"
+                    @click="loginUser"
+                    style="width: 50%"
+                  >
+                    Sign in
+                  </button>
                 </div>
-
               </div>
               <div
                 class="tab-pane fade"
@@ -91,7 +94,7 @@
               >
                 <h5 class="text-center">Sign Up</h5>
 
-                <div class="form-group" style="margin-bottom:20px">
+                <div class="form-group" style="margin-bottom: 20px">
                   <label for="name">Your name</label>
                   <input
                     type="text"
@@ -102,7 +105,7 @@
                   />
                 </div>
 
-                <div class="form-group" style="margin-bottom:20px">
+                <div class="form-group" style="margin-bottom: 20px">
                   <label for="email">Email address</label>
                   <input
                     type="email"
@@ -113,7 +116,7 @@
                     placeholder="Enter email"
                   />
                 </div>
-                <div class="form-group" style="margin-bottom:20px">
+                <div class="form-group" style="margin-bottom: 20px">
                   <label for="password">Password</label>
                   <input
                     type="password"
@@ -125,8 +128,15 @@
                   />
                 </div>
 
-                <div class="form-group" style="display:flex;justify-content:right">
-                  <button class="btn btn-outline-primary" style="width: 50%;" @click="createUser">
+                <div
+                  class="form-group"
+                  style="display: flex; justify-content: right"
+                >
+                  <button
+                    class="btn btn-outline-primary"
+                    style="width: 50%"
+                    @click="createUser"
+                  >
                     Register
                   </button>
                 </div>
@@ -140,15 +150,11 @@
 </template>
 
 <script>
-// import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import $ from "jquery";
-// import {db} from '../main'
-// import axios from 'axios'
-import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
-// import registerUser from '../utility/apiRequest/user/registerUser'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-import apiCaller from '@/utility/apiRequest/apiCaller';
+import apiCaller from "@/utility/apiRequest/apiCaller";
 
 export default {
   name: "Login",
@@ -160,139 +166,57 @@ export default {
       name: "",
       email: "",
       password: "",
-      error:null
+      error: null,
     };
   },
-  
+
   methods: {
-    // async createUser() {
-    //   try{
-    //     await registerUser(this.email,this.password)
-    //       $('#login').modal('hide')
-    //       this.$router.replace('about')
-    //   }
-    //   catch(err){
-    //     this.error = err.response.data.error;
-    //     alert(err.message)
-    //   }
-    // },
-    async createUser(){
+    async createUser() {
       const auth = getAuth();
-      try{
-        const res = await apiCaller.post('/users/register',{
+      try {
+        const res = await apiCaller.post("/users/register", {
           email: this.email,
-          password: this.password
-        }) 
-        
-        if(res){
-          await signInWithEmailAndPassword(auth, this.email, this.password)
+          password: this.password,
+        });
+
+        if (res) {
+          await signInWithEmailAndPassword(auth, this.email, this.password);
         }
 
-        if(this.email.includes('ubt-uni.net')){
-          this.$router.replace('admin'); 
+        if (this.email.includes("ubt-uni.net")) {
+          this.$router.replace("admin");
+          location.reload();
+        } else {
+          this.$router.replace("about");
           location.reload();
         }
-        else{
-          this.$router.replace('about');
-          location.reload();
-        }
-         $('#login').modal('hide');
-
-      }
-      catch(err){
+        $("#login").modal("hide");
+      } catch (err) {
         this.error = err.response.data.error;
-        alert(err.message)
+        alert(err.message);
       }
     },
 
-    async loginUser(){
-        const auth = getAuth();
+    async loginUser() {
+      const auth = getAuth();
 
-        try{
-          await signInWithEmailAndPassword(auth, this.email, this.password)
-          
-          if(this.email.includes('ubt-uni.net')){
-              this.$router.replace('admin')
-              location.reload();
-          }
-          else{
-            this.$router.replace('about')
-            location.reload();
-          }
-          
+      try {
+        await signInWithEmailAndPassword(auth, this.email, this.password);
+
+        if (this.email.includes("ubt-uni.net")) {
+          this.$router.replace("admin");
+          location.reload();
+        } else {
+          this.$router.replace("about");
+          location.reload();
         }
-        catch(err){
-            this.error = err
-            alert(err)
-        }
-          
-    }
-
-      // ,login(){
-      //     firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-      //                   .then(() => {
-      //                   $('#login').modal('hide');
-      //                     this.$router.replace('admin');  
-      //                     location.reload();
-      //                   })
-      //                   .catch(function(error) {
-      //                       var errorCode = error.code;
-      //                       var errorMessage = error.message;
-      //                       if (errorCode === 'auth/wrong-password') {
-      //                           alert('Wrong password provided.');
-      //                       } else {
-      //                           alert(errorMessage);
-      //                       }
-      //                       console.log(error);
-      //               });
-      // },
-      ,
-  //   createUser() {
-  //     firebase.auth().createUserWithEmailAndPassword(
-  //       this.email, 
-  //       this.password
-  //       )
-  //       .then((user) => {
-          
-  //         $("#login").modal("hide")
-          
-
-  //         db.collection("profiles").doc(user.user.uid).set({
-  //           name:this.name
-  //         })
-  //         .then(function(){
-  //           console.log("Document successfully written!");
-  //         })
-          
-  //         .catch(function(error){
-  //           console.error("Error writing doc: ",error)
-  //         })
-
-  //         if(this.email.includes('ubt-uni.net')){
-  //           this.$router.replace('admin')
-  //         }
-
-  //         else{
-  //           this.$router.replace('about')
-  //         }
-  //         location.reload();
-  //         // this.$router.replace('admin');
-           
-  //       })
-  //       .catch(function (error) {
-  //         var errorCode = error.code;
-  //         var errorMessage = error.message;
-  //         if (errorCode == "auth/weak-password") {
-  //           alert("The password is too weak.");
-  //         } else {
-  //           alert(errorMessage);
-  //         }
-  //         console.log(error);
-  //       });
-  //   },
+      } catch (err) {
+        this.error = err;
+        alert(err);
+      }
+    },
   },
 };
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
