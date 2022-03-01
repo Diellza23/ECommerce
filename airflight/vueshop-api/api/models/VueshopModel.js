@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema(
   {
-    type: String,
-    rooms: Number,
-    squareMeters: Number,
+    title: String,
+    description: String,
     price: Number,
+    category:String,
     files: String,
   },
   { typeKey: "$type" }

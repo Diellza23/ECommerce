@@ -5,30 +5,31 @@
 
       <form @submit.prevent="createVueshop">
         <div class="form-row">
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6">
             <label for="validationDefault01" style="padding-bottom: 10px"
-              >Type:</label
-            >
-            <Dropdown
-              v-model="form.type"
-              :options="[
-                { label: 'Flat', value: 'flat' },
-                { label: 'House', value: 'house' },
-              ]"
-            />
+              >Title:</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  v-model="form.title"
+                  class="form-control"
+                />
+              </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <label for="validationDefault02" style="padding-bottom: 10px"
-              >Square Meters:</label
-            >
-            <NumberInput v-model="form.squareMeters" />
+
+        <div class="col-md-6">
+            <label for="validationDefault01" style="padding-bottom: 10px"
+              >Description:</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  v-model="form.description"
+                  class="form-control"
+                />
+              </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <label for="validationDefault02" style="padding-bottom: 10px"
-              >Number of rooms:</label
-            >
-            <NumberInput v-model="form.rooms" />
-          </div>
+
+
           <div class="col-md-4 mb-3">
             <label for="validationDefaultUsername" style="padding-bottom: 10px"
               >Price:</label
@@ -40,6 +41,32 @@
               <NumberInput v-model="form.price" />
             </div>
           </div>
+
+
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault01" style="padding-bottom: 10px"
+              >Category:</label>
+            <Dropdown
+              v-model="form.category"
+              :options="[
+                { label: 'Electrics', value: 'electrics' },
+                { label: 'Other', value: 'other' },
+              ]"
+            />
+          </div>
+          <!-- <div class="col-md-4 mb-3">
+            <label for="validationDefault02" style="padding-bottom: 10px"
+              >Square Meters:</label
+            >
+            <NumberInput v-model="form.squareMeters" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02" style="padding-bottom: 10px"
+              >Number of rooms:</label
+            >
+            <NumberInput v-model="form.rooms" />
+          </div> -->
+          
         </div>
 
         <button class="btn btn-primary" type="submit">Submit form</button>
