@@ -101,12 +101,11 @@ export default {
 
   deleteMethod: async (req, res) => {
     const { id } = req.params;
-    try{
+    try {
       await VueshopModel.deleteOne(VueshopModel.findOne({ _id: id }));
-    }catch (err) {
+    } catch (err) {
       res.status(500).json({ err: err.toString() });
     }
     return res.json("Deleted");
   },
-  
 };

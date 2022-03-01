@@ -10,6 +10,9 @@ import About from "./views/About.vue";
 import "./views/List.vue";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import List from "./views/List.vue";
+import ContactsList from "./views/ContactsList.vue";
+import CreateContact from "./views/CreateContact.vue";
+
 // import View from "./views/View.vue";
 Vue.use(Router);
 
@@ -27,6 +30,11 @@ const router = new Router({
       path: "/about",
       name: "about",
       component: About,
+    },
+    {
+      path: "/createContact",
+      name: "createContact",
+      component: CreateContact,
     },
     // {
     //   path: "/list",
@@ -47,6 +55,11 @@ const router = new Router({
           path: "list",
           name: "list",
           component: List,
+        },
+        {
+          path: "contactsList",
+          name: "contactsList",
+          component: ContactsList,
         },
         {
           path: "overview",
@@ -78,6 +91,7 @@ const router = new Router({
         },
       ],
     },
+
     {
       path: "/checkout",
       name: "checkout",

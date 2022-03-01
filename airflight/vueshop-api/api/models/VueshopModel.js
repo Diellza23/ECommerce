@@ -5,7 +5,7 @@ const schema = mongoose.Schema(
     title: String,
     description: String,
     price: Number,
-    category:String,
+    category: String,
     files: String,
   },
   { typeKey: "$type" }

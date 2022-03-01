@@ -73,6 +73,12 @@
                 </router-link>
               </li>
               <li>
+                <router-link to="/admin/contactsList">
+                  <i class="fab fa-amazon"></i>
+                  <span>Contact</span>
+                </router-link>
+              </li>
+              <li>
                 <router-link to="/admin/list">
                   <i class="fa fa-shopping-cart"></i>
                   <span>List</span>

@@ -5,6 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import mongoose from "mongoose";
 import vueshopRoute from "./api/routes/vueshopRoute";
+import contactRoute from "./api/routes/contactRoute"
 import fileupload from 'express-fileUpload';
 
 
@@ -38,6 +39,7 @@ mongoose.connect("mongodb://localhost:27017/vueshop-db")
   app.use("/users", usersRouter);
   
   app.use("/vueshop", vueshopRoute);
+  app.use("/contact", contactRoute);
   
   app.listen(port, () => {
     console.log(`Vue Shop api running on port ${port}`);
