@@ -21,48 +21,11 @@
             <li class="list-group-item">Number of rooms: {{ field.rooms }}</li>
           </ul>
           <div class="card-body">
-            <!-- <router-link :to="{ name: 'View', params: { id: vueshop._id } }"
-              ><i class="fa fa-chart-line"></i>View</router-link
-            > -->
-
-            <!-- <router-link to="{ name: 'View', params: { id: vueshop._id } }">
-              <i class="fa fa-chart-line"></i>View
-            </router-link> -->
+            <!-- <router-link class="btn btn-primary">View</router-link> -->
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <div class="row justify-content-center">
-      <div class="col-4 col-md-2 p-5 p-md-4 justify-content-center"> -->
-    <!-- <table>
-          <tr>
-            <th>Property type</th>
-            <th>Rooms</th>
-            <th>Sqr meters</th>
-            <th>Price</th>
-          </tr>
-
-          <tr v-for="field in fields" :key="field">
-            <td>
-              {{ field.type }}
-            </td>
-            <td>
-              {{ field.squareMeters }}
-            </td>
-            <td>
-              {{ field.price }}
-            </td>
-            <td>
-              {{ field.squareMeters }}
-            </td>
-            <td>
-              {{ field.files }}
-            </td>
-          </tr>
-        </table> -->
-    <!-- </div>
-    </div> -->
   </div>
 </template>
 

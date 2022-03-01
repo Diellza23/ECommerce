@@ -8,10 +8,10 @@
           <p>Price: {{ this.vueshop.price }}</p>
           <p>Rooms: {{ this.vueshop.rooms }}</p>
         </div>
-        <Dropzone
+        <!-- <Dropzone
           :vueshopId="this.$route.params.id"
           :initialFiles="vueshop.files"
-        />
+        /> -->
       </div>
     </div>
   </section>
@@ -19,10 +19,10 @@
 
 <script>
 import apiRequest from "../utility/apiRequest";
-import Dropzone from "@/components/form/Dropzone.vue";
+// import Dropzone from "@/components/form/Dropzone.vue";
 export default {
   components: {
-    Dropzone,
+    // Dropzone,
   },
   created() {
     this.fetchVueshop();

@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const FILE_SEPARATOR = ";";
-const fileDir = `${__dirname}/../../public/files/`;
+const fileDir = `${__dirname}/../.././vueshop-api/public/files/`;
 
 const FileService = {
   uploadFiles: async (files) => {

@@ -1,5 +1,5 @@
 import express from "express";
-import checkIfAuthenticated from "./api/middleware/checkIfAuthenticated";
+// import checkIfAuthenticated from "./api/middleware/checkIfAuthenticated";
 import getAuthToken from "./api/middleware/getAuthToken";
 import usersRouter from "./api/routes/usersRoute";
 import cors from "cors";
@@ -24,7 +24,7 @@ mongoose.connect("mongodb://localhost:27017/vueshop-db")
     })
   );
   
-  app.use("/static", express.static(`${__dirname}/public/files`));
+  // app.use("/static", express.static(`${__dirname}/../.././vueshop-api/public/files/`));
   
   app.use(helmet());
   app.use(fileupload());

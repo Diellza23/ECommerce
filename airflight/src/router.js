@@ -69,25 +69,32 @@ const router = new Router({
           name: "orders",
           component: Orders,
         },
-        {
-          path: "/view/:id",
-          name: "View",
-          component: () =>
-            import(/*webpackChunkName: "view" */ "./views/View.vue"),
-        },
+
         {
           path: "create",
           name: "Create",
           component: () =>
             import(/*webpackChunkName: "create" */ "./views/Create.vue"),
         },
+        {
+          path: "/view/:id",
+          name: "View",
+          component: () =>
+            import(/*webpackChunkName: "view" */ "./views/View.vue"),
+        },
       ],
     },
     {
       path: "/checkout",
       name: "checkout",
-      component: () => import(/*webpackChunkName: "view" */ "./views/View.vue"),
+      component: () =>
+        import(/*webpackChunkName: "checkout" */ "./views/Checkout.vue"),
     },
+    // {
+    //   path: "view/:id",
+    //   name: "View",
+    //   component: () => import(/*webpackChunkName: "view" */ "./views/View.vue"),
+    // },
     // {
     //   path: "/view/:id",
     //   name: "View",
