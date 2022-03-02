@@ -97,6 +97,12 @@
                 </router-link>
               </li>
               <li>
+                <router-link to="/admin/usersList">
+                  <i class="fab fa-amazon"></i>
+                  <span>Users List</span>
+                </router-link>
+              </li>
+              <li>
                 <a href="#" @click="logout()">
                   <i class="fa fa-power-off"></i>
                   <span>Logout</span>

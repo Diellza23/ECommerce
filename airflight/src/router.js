@@ -4,7 +4,6 @@ import Home from "./views/Home.vue";
 import Admin from "./views/Admin.vue";
 import Overview from "./views/Overview.vue";
 import Products from "./views/Products.vue";
-// import firebase from 'firebase/compat/app';
 import Profile from "./views/Profile.vue";
 import About from "./views/About.vue";
 import "./views/List.vue";
@@ -14,7 +13,6 @@ import ContactsList from "./views/ContactsList.vue";
 import CreateContact from "./views/CreateContact.vue";
 import UsersList from "./components/users/UsersList.vue";
 
-// import View from "./views/View.vue";
 Vue.use(Router);
 
 const router = new Router({
@@ -37,15 +35,6 @@ const router = new Router({
       name: "createContact",
       component: CreateContact,
     },
-    // {
-    //   path: "/list",
-    //   name: "list",
-    //   meta: {
-    //     isAuthenticated: true,
-    //   },
-    //   component: () => import(/*webpackChunkName: "list" */ "./views/List.vue"),
-    // },
-
     {
       path: "/admin",
       name: "admin",
@@ -90,12 +79,12 @@ const router = new Router({
           component: () =>
             import(/*webpackChunkName: "create" */ "./views/Create.vue"),
         },
+        {
+          path: "usersList",
+          name: "UsersList",
+          component: UsersList,
+        },
       ],
-    },
-    {
-      path: "/usersList",
-      name: "UsersList",
-      component: UsersList,
     },
 
     {
@@ -104,15 +93,6 @@ const router = new Router({
       component: () =>
         import(/*webpackChunkName: "view" */ "./views/Checkout.vue"),
     },
-    // {
-    //   path: "/view/:id",
-    //   name: "View",
-    //   meta: {
-    //     isAuthenticated: true,
-    //   },
-    //   component: () => import(/*webpackChunkName: "view" */ "./views/View.vue"),
-    // },
-    // {
   ],
 });
 
