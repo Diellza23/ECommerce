@@ -23,12 +23,18 @@
             <li class="list-group-item">Price: {{ field.price }}</li>
             <li class="list-group-item">Category: {{ field.category }}</li>
           </ul>
+
           <div class="card-body">
-            <!-- <router-link class="btn btn-primary">View</router-link> -->
-            <button @click="deleteDoc(id)" class="btn btn-primary">
+            
+            <router-link class="btn btn-primary" :to="{ name: 'View', params: { id: field._id } }"> 
+              View 
+            </router-link>
+
+            <button class="btn btn-danger" @click="deleteDoc(field._id)">
               Delete
             </button>
-          </div>
+           
+          </div> 
         </div>
       </div>
     </div>
@@ -52,20 +58,16 @@ export default {
       .catch((e) => {
         this.errors.push(e);
       });
-
-    // this.vueshopList = await apiRequest.getVueShopList();
-    // this.fetchVueshop();
   },
   methods: {
     async fetchVueshop() {
       this.vueshopList = await apiRequest.getVueShopList();
-      //   const result = await apiRequest.getVueshopList();
-      //   this.$store.dispatch("fetchVueshops", result);
     },
 
     async deleteDoc(id) {
       try {
         await apiRequest.deleteMethod(id);
+        window.location.reload();
       } catch (error) {
         console.log(error.message);
       }
