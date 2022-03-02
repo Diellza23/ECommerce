@@ -12,6 +12,7 @@ import { onAuthStateChanged, getAuth } from "firebase/auth";
 import List from "./views/List.vue";
 import ContactsList from "./views/ContactsList.vue";
 import CreateContact from "./views/CreateContact.vue";
+import UsersList from "./components/users/UsersList.vue";
 
 // import View from "./views/View.vue";
 Vue.use(Router);
@@ -90,6 +91,11 @@ const router = new Router({
             import(/*webpackChunkName: "create" */ "./views/Create.vue"),
         },
       ],
+    },
+    {
+      path: "/usersList",
+      name: "UsersList",
+      component: UsersList,
     },
 
     {
