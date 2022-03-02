@@ -9,7 +9,7 @@ import contactRoute from "./api/routes/contactRoute"
 import fileupload from 'express-fileUpload';
 
 
-mongoose.connect("mongodb://localhost:27017/vueshop-db")
+mongoose.connect("mongodb://localhost:27017/vueshop-db").then(()=> {
 
   console.log("Connected to mongodb");
   
@@ -44,4 +44,6 @@ mongoose.connect("mongodb://localhost:27017/vueshop-db")
   app.listen(port, () => {
     console.log(`Vue Shop api running on port ${port}`);
   });
+
+})  
 

@@ -8,15 +8,17 @@
         Scroll to see our customized products
       </h1>
       <div class="row">
+        <!--:key="product"-->
         <div
           class="col-md-4"
           v-for="product in products"
-          :key="product"
+          :key="product.id"
           style="margin-bottom: 20px"
         >
           <div class="card product-item">
             <div>
               <VueSlickCarousel :arrows="true" :dots="true">
+                <!--:key="index"-->
                 <div
                   v-for="(image, index) in product.images"
                   v-bind:key="index.id"

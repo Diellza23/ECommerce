@@ -1,10 +1,11 @@
 <template>
   <div class="container">
     <div class="row">
+      <!--:key="field"-->
       <div
         class="col-md-4"
         v-for="field in fields"
-        :key="field"
+        :key="field.id"
         style="margin-bottom: 20px"
       >
         <div class="card" style="width: 18rem">
@@ -16,12 +17,17 @@
             <h5 class="card-title">Title: {{ field.title }}</h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Description: {{ field.description }}</li>
+            <li class="list-group-item">
+              Description: {{ field.description }}
+            </li>
             <li class="list-group-item">Price: {{ field.price }}</li>
             <li class="list-group-item">Category: {{ field.category }}</li>
           </ul>
           <div class="card-body">
             <!-- <router-link class="btn btn-primary">View</router-link> -->
+            <button @click="deleteDoc(id)" class="btn btn-primary">
+              Delete
+            </button>
           </div>
         </div>
       </div>
@@ -55,6 +61,14 @@ export default {
       this.vueshopList = await apiRequest.getVueShopList();
       //   const result = await apiRequest.getVueshopList();
       //   this.$store.dispatch("fetchVueshops", result);
+    },
+
+    async deleteDoc(id) {
+      try {
+        await apiRequest.deleteMethod(id);
+      } catch (error) {
+        console.log(error.message);
+      }
     },
   },
   data() {

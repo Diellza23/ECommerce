@@ -1,10 +1,11 @@
 <template>
   <div class="container">
     <div class="row">
+      <!--:key="field"-->
       <div
         class="col-md-4"
         v-for="field in fields"
-        :key="field"
+        :key="field.id"
         style="margin-bottom: 20px"
       >
         <div class="card" style="width: 18rem">

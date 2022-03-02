@@ -128,6 +128,7 @@
     >
       © 2022 Copyright:
     </div>
+    <mini-cart></mini-cart>
   </div>
 </template>
 

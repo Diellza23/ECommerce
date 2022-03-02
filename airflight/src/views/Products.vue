@@ -36,7 +36,7 @@
             </thead>
 
             <tbody>
-              <tr v-for="product in products" :key="product">
+              <tr v-for="product in products" :key="product.id">
                 <td>
                   {{ product.name }}
                 </td>

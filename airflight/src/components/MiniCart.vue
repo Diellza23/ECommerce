@@ -23,9 +23,10 @@
           </div>
           <div class="modal-body">
             <ul>
+              <!--:key="item"-->
               <li
                 v-for="item in this.$store.state.cart"
-                :key="item"
+                :key="item.id"
                 class="media"
               >
                 <img

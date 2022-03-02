@@ -143,4 +143,33 @@ router.beforeEach((to, from, next) => {
   });
 });
 
+// router.beforeEach((to, from, next) => {
+//   onAuthStateChanged(getAuth(), async (user) => {
+//     const shouldBeLoggedIn = (record) =>
+//       record.meta.isAuthenticated || record.meta.isAdmin;
+
+//     if (to.matched.some((record) => shouldBeLoggedIn(record))) {
+//       if (!user) {
+//         next("/");
+//       } else {
+//         const tokenResult = await getAuth().currentUser.getIdTokenResult();
+//         const isAdmin = tokenResult.claims.admin;
+//         if (isAdmin && to.matched.some((record) => !record.meta.isAdmin)) {
+//           next("/admin");
+//         } else if (to.matched.some((record) => record.meta.isAdmin)) {
+//           if (!tokenResult.claims.admin) {
+//             next("/about");
+//           } else {
+//             next();
+//           }
+//         } else {
+//           next();
+//         }
+//       }
+//     } else {
+//       next();
+//     }
+//   });
+// });
+
 export default router;

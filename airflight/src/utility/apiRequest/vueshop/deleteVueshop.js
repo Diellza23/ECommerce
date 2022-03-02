@@ -1,13 +1,12 @@
 import apiCaller from "../apiCaller";
 import { getAuth } from "firebase/auth";
 
-const deleteVueshop = async (vueshopBody) => {
+const deleteVueshop = async (id) => {
   const token = await getAuth().currentUser.getIdToken();
-  const { data } = await apiCaller.delete("vueshop/delete", vueshopBody, {
-    authorization: `Bearer ${token}`,
-  });
 
-  return data;
+  return await apiCaller.delete(`vueshop/delete/${id}`, {
+    headers: { authorization: `Bearer ${token}` },
+  });
 };
 
 export default deleteVueshop;

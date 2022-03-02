@@ -7,9 +7,10 @@
         <div class="col-md-8">
           <h4 class="py-4">Checkout Page</h4>
           <ul>
+            <!--:key="item"-->
             <li
               v-for="item in this.$store.state.cart"
-              :key="item"
+              :key="item.id"
               class="media"
             >
               <img
@@ -36,16 +37,13 @@
         <div class="col-md-4">
           <p>Total Price : {{ this.$store.getters.totalPrice | currency }}</p>
 
-          <button
-            class="pay-with-stripe btn btn-primary mt-4"
-            @click="pay"
-            :disabled="!complete"
-          >
+          <button class="pay-with-stripe btn btn-primary mt-4" disabled>
             Pay with credit card
           </button>
         </div>
       </div>
     </div>
+    <mini-cart></mini-cart>
   </div>
 </template>
 

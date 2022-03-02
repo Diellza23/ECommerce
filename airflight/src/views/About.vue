@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <Navbar></Navbar>
+    <Login></Login>
     <div class="container">
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -81,12 +82,19 @@
         </ul>
       </div>
     </div>
+
+    <mini-cart></mini-cart>
   </div>
 </template>
 
 <script>
+import Login from "../components/Login.vue";
 export default {
   name: "about",
+
+  components: {
+    Login,
+  },
 };
 </script>
 

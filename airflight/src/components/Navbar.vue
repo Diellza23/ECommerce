@@ -39,11 +39,12 @@
 
           <form class="form-inline my-2 my-lg-0">
             <a
+              style="color: white"
               v-if="!email"
-              class="btn btn-outline-success my-2 my-sm-0"
+              class="btn btn-info"
               data-bs-toggle="modal"
               data-bs-target="#login"
-              >Get Started</a
+              >Login/Register</a
             >
             <a
               class="btn btn-outline-info border-0 mx-2 my-2 my-sm-0"

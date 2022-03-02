@@ -1,36 +1,33 @@
 <template>
   <section>
     <div class="container">
-      <h3 style="margin-bottom: 50px">Add Vueshop</h3>
+      <h3 style="margin-bottom: 50px">Add Offer</h3>
 
       <form @submit.prevent="createVueshop">
         <div class="form-row">
           <div class="col-md-6">
             <label for="validationDefault01" style="padding-bottom: 10px"
-              >Title:</label>
-              <div class="form-group">
-                <input
-                  type="text"
-                  v-model="form.title"
-                  class="form-control"
-                />
-              </div>
+              >Title:</label
+            >
+            <div class="form-group">
+              <input type="text" v-model="form.title" class="form-control" />
+            </div>
           </div>
 
-        <div class="col-md-6">
+          <div class="col-md-6">
             <label for="validationDefault01" style="padding-bottom: 10px"
-              >Description:</label>
-              <div class="form-group">
-                <input
-                  type="text"
-                  v-model="form.description"
-                  class="form-control"
-                />
-              </div>
+              >Description:</label
+            >
+            <div class="form-group">
+              <input
+                type="text"
+                v-model="form.description"
+                class="form-control"
+              />
+            </div>
           </div>
 
-
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6">
             <label for="validationDefaultUsername" style="padding-bottom: 10px"
               >Price:</label
             >
@@ -38,35 +35,24 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupPrepend2">$</span>
               </div>
-              <NumberInput v-model="form.price" />
+              <input type="text" v-model="form.price" class="form-control" />
+              <!-- <NumberInput v-model="form.price" /> -->
             </div>
           </div>
 
-
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6 mb-5">
             <label for="validationDefault01" style="padding-bottom: 10px"
-              >Category:</label>
+              >Category:</label
+            >
             <Dropdown
               v-model="form.category"
               :options="[
                 { label: 'Electrics', value: 'electrics' },
+                { label: 'Tech', value: 'tech' },
                 { label: 'Other', value: 'other' },
               ]"
             />
           </div>
-          <!-- <div class="col-md-4 mb-3">
-            <label for="validationDefault02" style="padding-bottom: 10px"
-              >Square Meters:</label
-            >
-            <NumberInput v-model="form.squareMeters" />
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="validationDefault02" style="padding-bottom: 10px"
-              >Number of rooms:</label
-            >
-            <NumberInput v-model="form.rooms" />
-          </div> -->
-          
         </div>
 
         <button class="btn btn-primary" type="submit">Submit form</button>
@@ -78,19 +64,18 @@
 <script>
 import apiRequest from "../utility/apiRequest/";
 import Dropdown from "../components/form/Dropdown.vue";
-import NumberInput from "../components/form/NumberInput.vue";
 
 export default {
   components: {
     Dropdown,
-    NumberInput,
   },
   data() {
     return {
       form: {
-        type: "flat",
-        squareMeters: 0,
-        price: 0,
+        title: "",
+        description: "",
+        price: "",
+        category: "select",
       },
       error: null,
     };
