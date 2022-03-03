@@ -59,7 +59,7 @@
           >
             <div class="container">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-4">
                   <div class="form-group">
                     <input
                       type="text"
@@ -70,7 +70,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mb-4">
                   <div class="form-group">
                     <input
                       type="text"
@@ -81,7 +81,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                   <div class="form-group">
                     <input
                       type="text"
@@ -129,80 +129,25 @@
               <div class="row">
                 <div class="col-md-">
                   <div class="alert alert-info">
+                    Forgot your password? <br />
                     Please use the Reset password email button for reseting the
                     password.
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      v-model="account.name"
-                      placeholder="User name"
-                      class="form-control"
-                    />
-                  </div>
-                </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input
-                      type="text"
-                      v-model="account.email"
-                      placeholder="Email address"
-                      class="form-control"
-                    />
+                    <h6>Your email:</h6>
+                    <h5 class="form-control">{{ email }}</h5>
                   </div>
                 </div>
 
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      v-model="account.password"
-                      placeholder="New password"
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      v-model="account.confirmPassword"
-                      placeholder="Confirm password"
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input
-                      type="file"
-                      @change="uploadImage"
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input
-                      type="submit"
-                      value="Save Changes"
-                      class="btn btn-primary w-100"
-                    />
-                  </div>
-                </div>
-
-                <div class="col-md-4">
+                <div class="col-md-6 mt-4">
                   <div class="form-group">
                     <input
                       type="button"
                       @click="resetPassword"
-                      value="Reset password email"
+                      value="Reset password"
                       class="btn btn-success w-100"
                     />
                   </div>
@@ -245,6 +190,7 @@ export default {
         confirmPassword: null,
         uid: null,
       },
+      email: null,
     };
   },
   firestore() {
@@ -291,9 +237,11 @@ export default {
           console.log("An error occurred while updateing", +err.message);
         });
     },
-    uploadImage() {},
   },
-  created() {},
+  created() {
+    var user = firebase.auth().currentUser;
+    this.email = user.email;
+  },
 };
 </script>
 

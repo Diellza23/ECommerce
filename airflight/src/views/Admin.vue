@@ -87,7 +87,7 @@
               <li>
                 <router-link :to="{ name: 'Create' }">
                   <i class="fa fa-user"></i>
-                  <span>Create Vueshop</span>
+                  <span>Create Offers</span>
                 </router-link>
               </li>
               <li>

@@ -54,27 +54,38 @@
               <i class="fas fa-cart-plus"></i>
             </a>
           </form>
-        </div>
+          <!-- </div> -->
 
-        <div>
-          <ul
-            v-if="email"
-            class="navbar-nav d-flex flex-row align-items-center"
-          >
-            <div class="mr-4">
-              <p class="mb-0" style="color: white; padding-right: 10px">
-                Hello {{ email }}
-              </p>
-            </div>
-            <li class="nav-item dropdown">
+          <div class="btn-group" v-if="email">
+            <button
+              type="button"
+              class="btn btn-info dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="border-radius: 5px; color: white"
+            >
               <img
                 class="rounded-circle dropdown-bs-toggle"
                 src="../../public/img/simpleuser.png"
                 style="width: 35px; height: 30px"
                 alt="user-avatar"
               />
-            </li>
-          </ul>
+
+              {{ email }}
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">Profile</button>
+              <button class="dropdown-item" type="button">
+                Another action
+              </button>
+              <button class="dropdown-item" type="button" @click="logout()">
+                <i class="fa fa-power-off" style="padding-right: 10px"></i>
+                Logout
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -96,16 +107,18 @@ export default {
       email: null,
     };
   },
-  logout() {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        this.$router.replace("/");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("/");
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    },
   },
 
   created() {
