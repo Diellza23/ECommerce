@@ -36,7 +36,7 @@ export default {
       dropzoneOptions: {
         url: `http://localhost:4000/vueshop/${this.vueshopId}/uploadFile`,
         method: "put",
-        thumbnailWidth: 300,
+        thumbnailWidth: 230,
         maxFilesize: 2,
         addRemoveLinks: true,
       },
