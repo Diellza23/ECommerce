@@ -86,6 +86,12 @@ const router = new Router({
             import(/*webpackChunkName: "view" */ "./views/View.vue"),
         },
         {
+          path: "editOffer/:id",
+          name: "EditOffer",
+          component: () =>
+            import(/*webpackChunkName: "view" */ "./views/EditOffer.vue"),
+        },
+        {
           path: "create",
           name: "Create",
           component: () =>

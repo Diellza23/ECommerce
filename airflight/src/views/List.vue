@@ -25,6 +25,13 @@
             >
               View
             </router-link>
+            <router-link
+              class="btn btn-primary"
+              style="width: 80px"
+              :to="{ name: 'EditOffer', params: { id: field._id } }"
+            >
+              Edit
+            </router-link>
 
             <button
               class="btn btn-danger"
@@ -33,13 +40,13 @@
             >
               Delete
             </button>
-            <button
+            <!-- <button
               class="btn btn-success"
               @click="updateDoc(field._id)"
               style="margin-left: 10px; width: 80px"
             >
               Update
-            </button>
+            </button> -->
           </div>
         </div>
       </div>

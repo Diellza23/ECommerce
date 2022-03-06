@@ -4,14 +4,18 @@
     <div v-if="this.vueshop" class="card">
       <div class="card-body">
         <!-- <h5 class="card-title">Title: {{ this.vueshop.title }}</h5> -->
-        <input type="text" v-model="vueshop.title" />
+        <input type="text" class="card-title" v-model="vueshop.title" />
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          Description: {{ this.vueshop.description }}
+          <input type="text" class="card-title" v-model="vueshop.description" />
         </li>
-        <li class="list-group-item">Price: {{ this.vueshop.price }}</li>
-        <li class="list-group-item">Category: {{ this.vueshop.category }}</li>
+        <li class="list-group-item">
+          <input type="text" class="card-title" v-model="vueshop.price" />
+        </li>
+        <li class="list-group-item">
+          <input type="text" class="card-title" v-model="vueshop.category" />
+        </li>
       </ul>
       <Dropzone
         :vueshopId="this.$route.params.id"
@@ -61,10 +65,12 @@ export default {
     },
     async updateDoc(id) {
       try {
-        // await apiRequest.updateMethod(id);
         axios
           .put(`http://localhost:4000/vueshop/put/${id}`, {
             title: this.vueshop.title,
+            description: this.vueshop.description,
+            price: this.vueshop.price,
+            category: this.vueshop.categoty,
           })
           .then((response) => {
             alert(response, "updated");
@@ -76,7 +82,6 @@ export default {
         // window.location.reload();
       } catch (error) {
         console.log(error.message);
-        alert(error.message);
       }
     },
   },
