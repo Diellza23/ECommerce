@@ -115,7 +115,20 @@ export default {
       await VueshopModel.deleteOne({_id: id})
       return res.json({deleted:true})
     } catch(err){
+      res.status(500).json({ err: err.toString() });
+    }
+  },
 
+  updateMethod: async(req,res)=>{
+    const {id} = req.params
+
+    try{
+      await VueshopModel.findByIdAndUpdate(id,req.body)
+      // ({_id: id})
+      return res.json({updated:true})
+    } catch(err){
+      res.status(500).json({ err: err.toString() });
     }
   }
+
 };

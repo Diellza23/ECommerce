@@ -12,5 +12,6 @@ vueshopRoute.put(
   "/:vueshopId/removeFile/:filename",
   vueshopController.deleteFile
 );
-vueshopRoute.delete("/delete/:id",vueshopController.deleteMethod)
+vueshopRoute.delete("/delete/:id",vueshopController.deleteMethod);
+vueshopRoute.put("/put/:id", vueshopController.updateMethod);
 export default vueshopRoute;

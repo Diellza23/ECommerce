@@ -23,7 +23,7 @@
           <div class="card-body">
             <router-link
               class="btn btn-primary"
-              style="width: 100px"
+              style="width: 80px"
               :to="{ name: 'View', params: { id: field._id } }"
             >
               View
@@ -32,9 +32,16 @@
             <button
               class="btn btn-danger"
               @click="deleteDoc(field._id)"
-              style="margin-left: 10px; width: 100px"
+              style="margin-left: 10px; width: 80px"
             >
               Delete
+            </button>
+            <button
+              class="btn btn-success"
+              @click="updateDoc(field._id)"
+              style="margin-left: 10px; width: 80px"
+            >
+              Update
             </button>
           </div>
         </div>
@@ -72,6 +79,14 @@ export default {
     async deleteDoc(id) {
       try {
         await apiRequest.deleteMethod(id);
+        window.location.reload();
+      } catch (error) {
+        console.log(error.message);
+      }
+    },
+    async updateDoc(id) {
+      try {
+        await apiRequest.updateMethod(id);
         window.location.reload();
       } catch (error) {
         console.log(error.message);

@@ -7,7 +7,9 @@ import removeFile from "./vueshop/removeFile";
 import createContact from "./contact/createContact";
 import getContact from "./contact/getContact";
 import getContactList from "./contact/getContactList";
-import deleteMethod from './vueshop/deleteVueshop'
+import deleteMethod from './vueshop/deleteVueshop';
+import updateMethod from './vueshop/updateVueshop'
+
 export default {
   registerUser,
   getVueShopList,
@@ -18,5 +20,6 @@ export default {
   createContact,
   getContact,
   getContactList,
-  deleteMethod
+  deleteMethod,
+  updateMethod
 };
