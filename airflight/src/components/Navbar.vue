@@ -31,6 +31,11 @@
               >
             </li>
             <li class="nav-item">
+              <router-link to="/offersList" class="nav-link"
+                >Offers</router-link
+              >
+            </li>
+            <li class="nav-item">
               <router-link to="/checkout" class="nav-link"
                 >Checkout</router-link
               >

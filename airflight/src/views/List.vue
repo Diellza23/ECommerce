@@ -13,9 +13,6 @@
             <h5 class="card-title">Title: {{ field.title }}</h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              Description: {{ field.description }}
-            </li>
             <li class="list-group-item">Price: {{ field.price }}</li>
             <li class="list-group-item">Category: {{ field.category }}</li>
           </ul>
