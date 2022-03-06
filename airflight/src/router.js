@@ -11,13 +11,9 @@ import { onAuthStateChanged, getAuth } from "firebase/auth";
 import List from "./views/List.vue";
 import ContactsList from "./views/ContactsList.vue";
 import CreateContact from "./views/CreateContact.vue";
-<<<<<<< Updated upstream
 import UsersList from "./components/users/UsersList.vue";
 import OffersList from "./views/OffersList.vue";
 import OffersDetails from "./views/OffersDetails.vue";
-=======
-import AddUser from "./components/users/AddUser.vue";
->>>>>>> Stashed changes
 
 Vue.use(Router);
 
@@ -101,11 +97,6 @@ const router = new Router({
           component: UsersList,
         },
       ],
-    },
-    {
-      path: "/addUser",
-      name: "AddUser",
-      component: AddUser,
     },
 
     {
