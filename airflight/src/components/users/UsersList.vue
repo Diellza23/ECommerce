@@ -13,22 +13,25 @@
           >
             Add New User
           </button>
+          <button
+            class="btn btn-danger"
+            style="margin-bottom: 20px; margin-top: 20px; margin-left: 20px"
+            @click="deleteProfile(user)"
+          >
+            Delete Account
+          </button>
         </form>
 
         <table class="ui celled table">
           <thead>
             <tr>
               <th>Email</th>
-              <th>Operations</th>
             </tr>
           </thead>
 
           <tbody>
             <tr v-for="user in users" :key="user.id">
               <td data-label="Name">{{ user.email }}</td>
-              <td>
-                <button class="btn btn-danger">Delete User</button>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -123,6 +126,8 @@ import "firebase/compat/auth";
 import $ from "jquery";
 import apiCaller from "@/utility/apiRequest/apiCaller";
 import Swal from "sweetalert2";
+import { db } from "../../main";
+import axios from "axios";
 
 export default {
   data() {
@@ -132,6 +137,11 @@ export default {
       name: "",
       email: "",
       password: "",
+    };
+  },
+  firestore() {
+    return {
+      roles: db.collection("roles"),
     };
   },
   created() {
@@ -164,9 +174,15 @@ export default {
         });
     },
     addNew() {
+      axios
+        .get(`http://localhost:4000/users/`)
+        .then((response) => {
+          this.fields = response.data;
+        })
+        .catch((e) => {
+          this.errors.push(e);
+        });
       this.modal = "new";
-
-      // this.reset();
 
       $("#modaalRegister").modal("show");
     },
@@ -209,6 +225,39 @@ export default {
           title: "Oops...",
           text: "Something went wrong!",
         });
+      }
+    },
+    deleteUser(doc) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(doc["user.id"]);
+          this.$firestore.roles.doc(doc.id).delete(this.roles.id);
+
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        }
+      });
+    },
+    deleteProfile() {
+      const user = firebase.auth().currentUser;
+      try {
+        user
+          .delete()
+          .then(() => {
+            alert("deleting");
+          })
+          .catch((err) => {
+            alert(err.message);
+          });
+      } catch (error) {
+        alert(error.message);
       }
     },
   },

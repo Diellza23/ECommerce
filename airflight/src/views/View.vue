@@ -3,8 +3,7 @@
     <h1 style="margin-bottom: 40px; margin-top: 20px">Details View</h1>
     <div v-if="this.vueshop" class="card">
       <div class="card-body">
-        <!-- <h5 class="card-title">Title: {{ this.vueshop.title }}</h5> -->
-        <input type="text" v-model="vueshop.title" />
+        <h5 class="card-title">Title: {{ this.vueshop.title }}</h5>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
@@ -18,13 +17,13 @@
         :initialFiles="vueshop.files"
       />
     </div>
-    <button
+    <!-- <button
       class="btn btn-success"
       @click="updateDoc((id = vueshop._id))"
       style="margin-left: 10px; width: 80px"
     >
       Update
-    </button>
+    </button> -->
   </section>
 </template>
 

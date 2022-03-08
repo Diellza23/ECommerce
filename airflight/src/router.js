@@ -14,6 +14,7 @@ import CreateContact from "./views/CreateContact.vue";
 import UsersList from "./components/users/UsersList.vue";
 import OffersList from "./views/OffersList.vue";
 import OffersDetails from "./views/OffersDetails.vue";
+import UserProfile from "./views/UserProfile.vue";
 
 Vue.use(Router);
 
@@ -46,6 +47,12 @@ const router = new Router({
       path: "/offersDetails/:id",
       name: "offersDetails",
       component: OffersDetails,
+    },
+    {
+      path: "/userProfile",
+      name: "userProfile",
+      meta: { isAuthenticated: true },
+      component: UserProfile,
     },
     {
       path: "/admin",

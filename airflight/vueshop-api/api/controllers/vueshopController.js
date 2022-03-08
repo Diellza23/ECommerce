@@ -108,27 +108,26 @@ export default {
   //   }
   //   return res.json("Deleted");
   // },
-  deleteMethod: async (req,res) => {
-    const {id} = req.params
+  deleteMethod: async (req, res) => {
+    const { id } = req.params;
 
-    try{
-      await VueshopModel.deleteOne({_id: id})
-      return res.json({deleted:true})
-    } catch(err){
+    try {
+      await VueshopModel.deleteOne({ _id: id });
+      return res.json({ deleted: true });
+    } catch (err) {
       res.status(500).json({ err: err.toString() });
     }
   },
 
-  updateMethod: async(req,res)=>{
-    const {id} = req.params
+  updateMethod: async (req, res) => {
+    const { id } = req.params;
 
-    try{
-      await VueshopModel.findByIdAndUpdate(id,req.body)
+    try {
+      await VueshopModel.findByIdAndUpdate(id, req.body);
       // ({_id: id})
-      return res.json({updated:true})
-    } catch(err){
+      return res.json({ updated: true });
+    } catch (err) {
       res.status(500).json({ err: err.toString() });
     }
-  }
-
+  },
 };

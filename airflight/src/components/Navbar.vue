@@ -81,10 +81,10 @@
             </button>
 
             <div class="dropdown-menu dropdown-menu-right">
-              <button class="dropdown-item" type="button">Profile</button>
-              <button class="dropdown-item" type="button">
-                Another action
-              </button>
+              <router-link to="/userProfile" class="nav-link"
+                >Profile</router-link
+              >
+
               <button class="dropdown-item" type="button" @click="logout()">
                 <i class="fa fa-power-off" style="padding-right: 10px"></i>
                 Logout

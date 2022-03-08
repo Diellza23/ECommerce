@@ -25,13 +25,6 @@
             >
               View
             </router-link>
-            <router-link
-              class="btn btn-primary"
-              style="width: 80px"
-              :to="{ name: 'EditOffer', params: { id: field._id } }"
-            >
-              Edit
-            </router-link>
 
             <button
               class="btn btn-danger"
@@ -40,13 +33,13 @@
             >
               Delete
             </button>
-            <!-- <button
-              class="btn btn-success"
-              @click="updateDoc(field._id)"
-              style="margin-left: 10px; width: 80px"
+            <router-link
+              class="btn btn-warning"
+              style="width: 80px; margin-left: 10px; color: grey"
+              :to="{ name: 'EditOffer', params: { id: field._id } }"
             >
-              Update
-            </button> -->
+              Edit
+            </router-link>
           </div>
         </div>
       </div>

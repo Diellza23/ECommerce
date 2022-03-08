@@ -1,20 +1,24 @@
 <template>
   <section class="container">
-    <h1 style="margin-bottom: 40px; margin-top: 20px">Details View</h1>
+    <h1 style="margin-bottom: 40px; margin-top: 20px">Edit Data</h1>
     <div v-if="this.vueshop" class="card">
       <div class="card-body">
         <!-- <h5 class="card-title">Title: {{ this.vueshop.title }}</h5> -->
-        <input type="text" class="card-title" v-model="vueshop.title" />
+        <input type="text" class="form-control" v-model="vueshop.title" />
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <input type="text" class="card-title" v-model="vueshop.description" />
+          <input
+            type="text"
+            class="form-control"
+            v-model="vueshop.description"
+          />
         </li>
         <li class="list-group-item">
-          <input type="text" class="card-title" v-model="vueshop.price" />
+          <input type="text" class="form-control" v-model="vueshop.price" />
         </li>
         <li class="list-group-item">
-          <input type="text" class="card-title" v-model="vueshop.category" />
+          <input type="text" class="form-control" v-model="vueshop.category" />
         </li>
       </ul>
       <Dropzone
@@ -23,9 +27,15 @@
       />
     </div>
     <button
+      class="btn btn-danger"
+      style="width: 150px; margin-top: 30px; float: right; margin-left: 10px"
+    >
+      Cancel
+    </button>
+    <button
       class="btn btn-success"
       @click="updateDoc((id = vueshop._id))"
-      style="margin-left: 10px; width: 80px"
+      style="width: 150px; margin-top: 30px; float: right"
     >
       Update
     </button>
@@ -35,6 +45,7 @@
 <script>
 import apiRequest from "../utility/apiRequest";
 import axios from "axios";
+import Toast from "sweetalert2";
 import Dropzone from "@/components/form/Dropzone.vue";
 export default {
   components: {
@@ -70,16 +81,14 @@ export default {
             title: this.vueshop.title,
             description: this.vueshop.description,
             price: this.vueshop.price,
-            category: this.vueshop.categoty,
+            category: this.vueshop.category,
           })
-          .then((response) => {
-            alert(response, "updated");
-          })
-          .catch((e) => {
-            this.errors.push(e);
+          .then(() => {
+            Toast.fire({
+              icon: "success",
+              title: "Updated successfully",
+            });
           });
-        alert("updated");
-        // window.location.reload();
       } catch (error) {
         console.log(error.message);
       }
