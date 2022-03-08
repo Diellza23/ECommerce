@@ -2,9 +2,9 @@ import Joi from "joi";
 
 const updatedContactSchema = Joi.object({
   _id: Joi.string().required(),
-  name: Joi.string(),
-  email: Joi.string(),
-  phone: Joi.string(),
-  message: Joi.string(),
+  name: Joi.string().required(),
+  email: Joi.string().required(),
+  phone: Joi.string().required(),
+  message: Joi.string().required(),
 });
 export default updatedContactSchema;

@@ -316,7 +316,7 @@ export default {
         user
           .delete()
           .then(() => {
-            alert("deleting");
+            alert("Account deleted successfully");
           })
           .catch((err) => {
             alert(err.message);

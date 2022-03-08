@@ -37,54 +37,117 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div
+                      class="form-group"
+                      :class="{ 'form-group--error': $v.form.name.$error }"
+                    >
                       <input
                         id="name"
                         type="text"
                         placeholder="Full Name"
                         class="form-control"
-                        v-model="form.name"
+                        v-model.trim="$v.form.name.$model"
                       />
+                      <div class="text-danger" v-if="!$v.form.name.required">
+                        Name is required
+                      </div>
+                      <div class="text-danger" v-if="!$v.form.name.minLength">
+                        Name must have at least
+                        {{ $v.form.name.$params.minLength.min }} letters.
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-group">
+                    <div
+                      class="form-group"
+                      :class="{ 'form-group--error': $v.form.email.$error }"
+                    >
                       <input
                         id="email"
                         type="text"
                         placeholder="Email Address"
                         class="form-control"
-                        v-model="form.email"
+                        v-model.trim="$v.form.email.$model"
                       />
+
+                      <div class="text-danger" v-if="!$v.form.email.required">
+                        Email is required
+                      </div>
+                      <div class="text-danger" v-if="!$v.form.email.minLength">
+                        Email must have at least
+                        {{ $v.form.email.$params.minLength.min }} letters.
+                      </div>
                     </div>
                   </div>
                   <div class="col-12">
-                    <div class="form-group">
+                    <div
+                      class="form-group"
+                      :class="{ 'form-group--error': $v.form.phone.$error }"
+                    >
                       <input
                         id="subject"
                         type="text"
                         placeholder="Phone number"
                         class="form-control"
-                        v-model="form.phone"
+                        v-model.trim="$v.form.phone.$model"
                       />
+                      <div class="text-danger" v-if="!$v.form.phone.required">
+                        Phone number is required!
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <div class="form-group">
+                    <div
+                      class="form-group"
+                      :class="{ 'form-group--error': $v.form.message.$error }"
+                    >
                       <textarea
                         id="message"
                         placeholder="Message"
                         class="form-control"
                         rows="3"
-                        v-model="form.message"
+                        v-model.trim="$v.form.message.$model"
                       ></textarea>
+                      <div class="text-danger" v-if="!$v.form.message.required">
+                        Message is required
+                      </div>
+                      <div
+                        class="text-danger"
+                        v-if="!$v.form.message.minLength"
+                      >
+                        Message must have at least
+                        {{ $v.form.message.$params.minLength.min }} letters.
+                      </div>
+                      <div
+                        class="text-danger"
+                        v-if="!$v.form.message.maxLength"
+                      >
+                        Message must have at most
+                        {{ $v.form.message.$params.maxLength.max }} letters.
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="send">
-                      <button class="px-btn theme" type="submit">
+                      <!-- <button class="px-btn theme" type="submit">
                         Contact
+                      </button> -->
+                      <button
+                        class="px-btn theme"
+                        type="submit"
+                        :disabled="submitStatus === 'PENDING'"
+                      >
+                        Submit
                       </button>
+                      <p class="typo__p" v-if="submitStatus === 'OK'">
+                        Thanks for your submission!
+                      </p>
+                      <p class="typo__p" v-if="submitStatus === 'ERROR'">
+                        Please fill the form correctly.
+                      </p>
+                      <p class="typo__p" v-if="submitStatus === 'PENDING'">
+                        Sending...
+                      </p>
                       <!-- <a id="send_message" class="px-btn theme" href="#"
                         ><span>Contact Us</span> <i class="arrow"></i
                       ></a> -->
@@ -134,12 +197,35 @@
 
 <script>
 import apiRequest from "../utility/apiRequest/";
-import Toast from "sweetalert2";
+// import Toast from "sweetalert2";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
 
 export default {
   components: {},
+  validations: {
+    form: {
+      name: {
+        required,
+        minLength: minLength(4),
+      },
+      email: {
+        required,
+        minLength: minLength(10),
+      },
+      message: {
+        required,
+        minLength: minLength(15),
+        maxLength: maxLength(50),
+      },
+      phone: {
+        required,
+      },
+    },
+  },
   data() {
     return {
+      submitStatus: null,
+
       form: {
         message: "",
         name: "",
@@ -151,19 +237,24 @@ export default {
   methods: {
     async createContact() {
       try {
-        const newContact = await apiRequest.createContact({ ...this.form });
-        this.$router.push({
-          name: "createContact",
-          params: { id: newContact._id },
-        });
+        this.$v.$touch();
+        if (this.$v.$invalid) {
+          this.submitStatus = "ERROR";
+          return;
+        } else {
+          const newContact = await apiRequest.createContact({ ...this.form });
+          this.$router.push({
+            name: "createContact",
+            params: { id: newContact._id },
+          });
+          // do your submit logic here
+          this.submitStatus = "PENDING";
+          setTimeout(() => {
+            this.submitStatus = "OK";
+          }, 500);
+        }
 
-        Toast.fire({
-          icon: "success",
-          title: "Contacted the team successfully ",
-        });
-        window.setTimeout(function () {
-          location.reload();
-        }, 2000);
+        alert("Contacted");
       } catch (err) {
         alert(err.message);
       }

@@ -38,6 +38,9 @@ Vue.component("products-list", require("./sections/ProductsList.vue").default);
 import Vue2Filters from "vue2-filters";
 Vue.use(Vue2Filters);
 
+import Vuelidate from "vuelidate";
+Vue.use(Vuelidate);
+
 // import VueCarousel  from 'vue-carousel';
 // Vue.use(VueCarousel)
 
