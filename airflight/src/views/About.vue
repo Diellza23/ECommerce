@@ -9,7 +9,8 @@
             <h4 class="pt-3">Our Mission</h4>
             <p>
               To serve consumers through online and physical stores and focus on
-              selection, price, and convenience
+              selection, price, and convenience plus give a variety of trustful
+              brand products, and quality that satisfies our costumer's needs.
             </p>
           </div>
 
@@ -18,14 +19,15 @@
             <p>
               Our vision is to be earth's most customer centric company; to
               build a place where people can come to find and discover anything
-              they might want to buy from tech online
+              they might want to buy from tech online.
             </p>
             <p>
-              Praesent pulvinar pulvinar fringilla. Fusce porttitor odio in
-              sapien elementum, at semper lectus mollis. Etiam et mauris eget
-              lorem varius congue. Curabitur sagittis augue hendrerit pretium
-              pellentesque. Cras ac tincidunt urna. Aenean maximus in erat eu
-              interdum.
+              The thing we all share is a belief that online shopping should
+              inform and empower people. We share our products, offers and
+              everything you need to know about specific items in our store. The
+              support team is all the way accompanying you to order online
+              correctly and not make any mistakes that could lead to harming our
+              costumers.
             </p>
           </div>
         </div>
@@ -75,7 +77,7 @@
         <ul class="pt-2">
           <li class="pt-1">+38349123456</li>
           <li class="pt-1">vueshop@support.com</li>
-          <li class="pt-1">Magjistralja Prishtine-Ferizaj km.6</li>
+          <li class="pt-1">Highway Prishtine-Ferizaj km.6</li>
 
           <li><a href="https://www.facebook.com/">Facebook</a></li>
           <li><a href="https://www.instagram.com/">Instagram</a></li>

@@ -84,7 +84,7 @@
     <div class="container h-100">
       <div class="row p-5 h-100 justify-content-center align-items-center">
         <div class="col-md-6">
-          <img src="/img/online.jpg" alt="" width="400" />
+          <img src="/img/huawei.jpg" alt="" width="300" />
         </div>
         <div class="col-md-6">
           <h3>Learn More About us</h3>
@@ -92,8 +92,11 @@
             Protected by reCAPTCHA. The Google Privacy Policy and Terms of
             Service apply. Privacy Policy | Opt out anytime
           </p>
-          <button class="btn custom-btn btn-outline-primary mr-4">
-            Browse Products
+          <button
+            class="btn custom-btn btn-outline-primary mr-4"
+            @click="goToAbout()"
+          >
+            Our Company's history
           </button>
         </div>
       </div>
@@ -133,6 +136,9 @@ export default {
     },
     onSubmit(evt) {
       evt.preventDefault();
+    },
+    goToAbout() {
+      this.$router.push("/about");
     },
   },
 };

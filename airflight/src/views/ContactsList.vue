@@ -1,32 +1,37 @@
 <template>
   <div class="container">
-    <div class="row">
-      <!--:key="field"-->
-      <div
-        class="col-md-4"
-        v-for="field in fields"
-        :key="field.id"
-        style="margin-bottom: 20px"
-      >
-        <div class="card" style="width: 18rem">
-          <!-- <img
-            class="card-img-top"
-            src=""
-          />  -->
-          <div class="card-body">
-            <h5 class="card-title">Full Name: {{ field.name }}</h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Email: {{ field.email }}</li>
-            <li class="list-group-item">Phone number: {{ field.phone }}</li>
-            <li class="list-group-item">Message: {{ field.message }}</li>
-          </ul>
-          <div class="card-body">
-            <!-- <router-link class="btn btn-primary">View</router-link> -->
-          </div>
-        </div>
-      </div>
-    </div>
+    <h3>Contact</h3>
+    <table class="table" style="color: grey">
+      <caption>
+        List of contact messages
+      </caption>
+      <thead>
+        <tr style="color: black">
+          <th scope="col" style="color: orange">#</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">Message</th>
+          <th scope="col" style="color: grey">Operations</th>
+        </tr>
+      </thead>
+      <tbody v-for="field in fields" :key="field.id">
+        <tr>
+          <th scope="row" style="color: orange">1</th>
+          <td>{{ field.name }}</td>
+          <td>{{ field.email }}</td>
+          <td>{{ field.phone }}</td>
+          <td>{{ field.message }}</td>
+          <router-link
+            class="btn btn-warning"
+            style="width: 80px; color: grey"
+            :to="{ name: 'ViewContact', params: { id: field._id } }"
+          >
+            View
+          </router-link>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 

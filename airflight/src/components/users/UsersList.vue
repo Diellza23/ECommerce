@@ -26,12 +26,16 @@
           <thead>
             <tr>
               <th>Email</th>
+              <!-- <th>Operations</th> -->
             </tr>
           </thead>
 
           <tbody>
             <tr v-for="user in users" :key="user.id">
               <td data-label="Name">{{ user.email }}</td>
+              <!-- <td>
+                <button @click="callId(user.id)">Test</button>
+              </td> -->
             </tr>
           </tbody>
         </table>
@@ -164,15 +168,10 @@ export default {
       });
   },
   methods: {
-    signout() {
-      firebase
-        .auth()
-        .signOut()
-        .then((user) => {
-          this.$router.push("/");
-          console.log(user);
-        });
-    },
+    // callId(id) {
+    //   alert(id);
+    // },
+
     addNew() {
       axios
         .get(`http://localhost:4000/users/`)
@@ -187,17 +186,17 @@ export default {
       $("#modaalRegister").modal("show");
     },
 
-    changeRole(uid, event) {
-      var addMessage = firebase.functions().httpsCallable("setUserRole");
-      var data = { uid: uid, role: { [event.target.value]: true } };
-      addMessage(data)
-        .then(function (result) {
-          console.log(result);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
+    // changeRole(uid, event) {
+    //   var addMessage = firebase.functions().httpsCallable("setUserRole");
+    //   var data = { uid: uid, role: { [event.target.value]: true } };
+    //   addMessage(data)
+    //     .then(function (result) {
+    //       console.log(result);
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    // },
     async addUser() {
       try {
         const res = await apiCaller.post("/users/register", {
@@ -240,6 +239,8 @@ export default {
         if (result.isConfirmed) {
           console.log(doc["user.id"]);
           this.$firestore.roles.doc(doc.id).delete(this.roles.id);
+
+          // firebase.delete(id)
 
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }

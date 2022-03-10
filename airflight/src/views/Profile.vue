@@ -57,7 +57,7 @@
             role="tabpanel"
             aria-labelledby="profile-tab"
           >
-            <div class="container">
+            <div class="container" style="margin-top: 30px">
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-group">
@@ -125,7 +125,7 @@
             role="tabpanel"
             aria-labelledby="account-tab"
           >
-            <div class="container">
+            <div class="container" style="margin-top: 20px">
               <div class="row">
                 <div class="col-md-">
                   <div class="alert alert-info">

@@ -17,13 +17,13 @@
         :initialFiles="vueshop.files"
       />
     </div>
-    <!-- <button
-      class="btn btn-success"
-      @click="updateDoc((id = vueshop._id))"
-      style="margin-left: 10px; width: 80px"
+    <button
+      @click="goToOffersList()"
+      class="btn btn-outline-primary"
+      style="width: 150px; margin-top: 25px; float: left"
     >
-      Update
-    </button> -->
+      Go back
+    </button>
   </section>
 </template>
 
@@ -77,6 +77,9 @@ export default {
         console.log(error.message);
         alert(error.message);
       }
+    },
+    goToOffersList() {
+      this.$router.push("/admin/list");
     },
   },
 };

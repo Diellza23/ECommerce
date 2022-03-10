@@ -19,8 +19,8 @@
               <div class="section-title">
                 <h2>Get In Touch</h2>
                 <p>
-                  I design and develop services for customers of all sizes,
-                  specializing in creating stylish, modern websites
+                  For all enquiries, please email us using the form below and
+                  our support team will answer all your questions.
                 </p>
               </div>
             </div>
@@ -159,15 +159,18 @@
             <div class="col-md-5 col-lg-4 m-15px-tb">
               <div class="contact-name">
                 <h5>Mail</h5>
-                <p>info@domainname.com</p>
+                <p>vueshop@support.com</p>
               </div>
               <div class="contact-name">
                 <h5>Visit My Studio</h5>
-                <p>Warnwe Park Streetperrine, <br />FL 33157 New York City</p>
+                <p>
+                  Warnwe Park Streetperrine, <br />Highway Prishtine-Ferizaj
+                  km.6
+                </p>
               </div>
               <div class="contact-name">
                 <h5>Phone</h5>
-                <p>+01 123 654 8096</p>
+                <p>+383 49 123 456</p>
               </div>
               <div class="social-share nav">
                 <a class="dribbble" href="#">
@@ -215,7 +218,7 @@ export default {
       message: {
         required,
         minLength: minLength(15),
-        maxLength: maxLength(50),
+        maxLength: maxLength(100),
       },
       phone: {
         required,

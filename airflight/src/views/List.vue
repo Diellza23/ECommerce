@@ -19,13 +19,20 @@
 
           <div class="card-body">
             <router-link
-              class="btn btn-primary"
+              class="btn btn-outline-success"
               style="width: 80px"
               :to="{ name: 'View', params: { id: field._id } }"
             >
               View
             </router-link>
 
+            <router-link
+              class="btn btn-warning"
+              style="width: 80px; margin-left: 10px; color: white"
+              :to="{ name: 'EditOffer', params: { id: field._id } }"
+            >
+              Edit
+            </router-link>
             <button
               class="btn btn-danger"
               @click="deleteDoc(field._id)"
@@ -33,13 +40,6 @@
             >
               Delete
             </button>
-            <router-link
-              class="btn btn-warning"
-              style="width: 80px; margin-left: 10px; color: grey"
-              :to="{ name: 'EditOffer', params: { id: field._id } }"
-            >
-              Edit
-            </router-link>
           </div>
         </div>
       </div>

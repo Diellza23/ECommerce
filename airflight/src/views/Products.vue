@@ -19,7 +19,7 @@
         <h3 class="d-inline-block">Products list</h3>
         <button
           @click="addNew()"
-          class="btn btn-primary float-right"
+          class="btn btn-success float-right"
           style="float: right"
         >
           Add Product
@@ -32,6 +32,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Modify</th>
+                <th>Delete</th>
               </tr>
             </thead>
 
@@ -45,11 +46,18 @@
                 </td>
 
                 <td>
-                  <button class="btn btn-primary" @click="editProduct(product)">
+                  <button
+                    class="btn btn-outline-primary"
+                    style="width: 100px"
+                    @click="editProduct(product)"
+                  >
                     Edit
                   </button>
+                </td>
+                <td>
                   <button
-                    class="btn btn-danger"
+                    class="btn btn-outline-danger"
+                    style="width: 100px"
                     @click="deleteProduct(product)"
                   >
                     Delete

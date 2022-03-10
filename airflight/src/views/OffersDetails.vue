@@ -40,7 +40,7 @@
                   class="btn btn-warning border-0 mx-2 my-2 my-sm-0"
                   data-bs-toggle="modal"
                   data-bs-target="#miniCart"
-                  >Add to Cart <i class="fas fa-cart-plus"></i
+                  >Order now <i class="fas fa-cart-plus"></i
                 ></a>
               </div>
             </div>

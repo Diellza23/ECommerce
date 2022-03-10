@@ -3,19 +3,29 @@
     <h1 style="margin-bottom: 40px; margin-top: 20px">Edit Data</h1>
     <div v-if="this.vueshop" class="card">
       <div class="card-body">
-        <!-- <h5 class="card-title">Title: {{ this.vueshop.title }}</h5> -->
-        <input type="text" class="form-control" v-model="vueshop.title" />
+        <input
+          type="text"
+          placeholder="title.."
+          class="form-control"
+          v-model="vueshop.title"
+        />
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <input
+            placeholder="desciption.."
             type="text"
             class="form-control"
             v-model="vueshop.description"
           />
         </li>
         <li class="list-group-item">
-          <input type="text" class="form-control" v-model="vueshop.price" />
+          <input
+            type="text"
+            placeholder="$.."
+            class="form-control"
+            v-model="vueshop.price"
+          />
         </li>
         <li class="list-group-item">
           <input type="text" class="form-control" v-model="vueshop.category" />
@@ -27,13 +37,14 @@
       />
     </div>
     <button
+      @click="goToList()"
       class="btn btn-danger"
       style="width: 150px; margin-top: 30px; float: right; margin-left: 10px"
     >
       Cancel
     </button>
     <button
-      class="btn btn-success"
+      class="btn btn-outline-success"
       @click="updateDoc((id = vueshop._id))"
       style="width: 150px; margin-top: 30px; float: right"
     >
@@ -71,6 +82,9 @@ export default {
   },
 
   methods: {
+    goToList() {
+      this.$router.push("/admin/list");
+    },
     async fetchVueshop() {
       this.vueshop = await apiRequest.getVueshop(this.$route.params.id);
     },
