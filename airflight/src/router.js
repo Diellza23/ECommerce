@@ -2,7 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Admin from "./views/Admin.vue";
-import Overview from "./views/Overview.vue";
 import Products from "./views/Products.vue";
 import Profile from "./views/Profile.vue";
 import About from "./views/About.vue";
@@ -70,11 +69,7 @@ const router = new Router({
           name: "contactsList",
           component: ContactsList,
         },
-        {
-          path: "overview",
-          name: "overview",
-          component: Overview,
-        },
+
         {
           path: "products",
           name: "products",
@@ -96,13 +91,15 @@ const router = new Router({
           path: "viewContact/:id",
           name: "ViewContact",
           component: () =>
-            import(/*webpackChunkName: "view" */ "./views/ViewContact.vue"),
+            import(
+              /*webpackChunkName: "viewContact" */ "./views/ViewContact.vue"
+            ),
         },
         {
           path: "editOffer/:id",
           name: "EditOffer",
           component: () =>
-            import(/*webpackChunkName: "view" */ "./views/EditOffer.vue"),
+            import(/*webpackChunkName: "editOffer" */ "./views/EditOffer.vue"),
         },
         {
           path: "create",

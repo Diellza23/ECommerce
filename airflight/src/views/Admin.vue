@@ -61,12 +61,6 @@
               </li>
 
               <li>
-                <router-link to="/admin/overview">
-                  <i class="fa fa-chart-line"></i>
-                  <span>Overview</span>
-                </router-link>
-              </li>
-              <li>
                 <router-link to="/admin/products">
                   <i class="fab fa-amazon"></i>
                   <span>Products</span>

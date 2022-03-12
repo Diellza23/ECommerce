@@ -3,13 +3,60 @@
     <Navbar />
 
     <div class="container">
+      <div
+        class="row"
+        id="spans"
+        style="
+          margin-bottom: 50px;
+          margin-top: -100px;
+          background-color: #e0ecff;
+        "
+      >
+        <div class="col-xl-3 col-lg-6" style="margin-top: 50px" id="span">
+          <img
+            style="height: 50px"
+            src="https://hhstsyoejx.gjirafa.net/gj50/brand_images/msi.png		"
+          />
+        </div>
+        <div class="col-xl-3 col-lg-6" style="margin-top: 50px">
+          <img
+            style="height: 50px; width: 150px"
+            src="https://hhstsyoejx.gjirafa.net/gj50/brand_images/lenovo.png"
+          />
+        </div>
+        <div class="col-xl-3 col-lg-6" style="margin-top: 50px">
+          <img
+            style="height: 50px; width: 60px"
+            src="https://hhstsyoejx.gjirafa.net/gj50/brand_images/apple.png"
+          />
+        </div>
+        <div class="col-xl-3 col-lg-6" style="margin-top: 50px">
+          <img
+            style="height: 50px"
+            src="https://hhstsyoejx.gjirafa.net/gj50/brand_images/samsung.png"
+          />
+        </div>
+
+        <div style="margin-top: 50px">
+          <!-- <button class="btn btn-info mb-2" style="float: right" disabled>
+            Pay securely
+          </button> -->
+          <h5 style="text-align: center; color: grey">
+            Gaming accessories. Find your ideal tech needs.
+          </h5>
+        </div>
+      </div>
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
         crossorigin="anonymous"
       />
+
       <div class="row">
+        <!-- <h3 style="text-align: center; margin-bottom: 30px">
+          Deals of the Day, Shop & much more
+        </h3> -->
         <div class="col-xl-3 col-lg-6" v-for="field in fields" :key="field.id">
           <div class="card l-bg-blue-dark">
             <div class="card-statistic-3 p-4">
@@ -48,6 +95,7 @@
         </div>
       </div>
     </div>
+    <Footer />
     <mini-cart></mini-cart>
   </div>
 </template>
@@ -57,6 +105,7 @@ import apiRequest from "../utility/apiRequest";
 import axios from "axios";
 import DropzoneOffers from "../components/form/DropzoneOffers.vue";
 import MiniCart from "../components/MiniCart.vue";
+import Footer from "./Footer.vue";
 export default {
   props: {
     vueshop: Object,
@@ -64,6 +113,7 @@ export default {
   components: {
     DropzoneOffers,
     MiniCart,
+    Footer,
   },
   created() {
     axios

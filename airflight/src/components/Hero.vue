@@ -14,15 +14,19 @@
               <button class="btn custom-btn btn-info mr-4" disabled>
                 Explore
               </button>
-              <button class="btn custom-btn btn-outline-secondary">
-                Products
+              <button
+                class="btn custom-btn btn-outline-warning"
+                style="margin-left: 10px"
+                @click="goToOffers()"
+              >
+                Best Offers
               </button>
             </div>
           </div>
         </div>
         <div class="col-md-7">
           <div class="graphic">
-            <img src="/img/online.jpg" alt="" />
+            <img src="/img/online.jpg" alt="" style="max-width: 100%" />
           </div>
         </div>
       </div>
@@ -35,6 +39,11 @@ export default {
   name: "Hero",
   props: {
     msg: String,
+  },
+  methods: {
+    goToOffers() {
+      this.$router.push("offersList");
+    },
   },
 };
 </script>

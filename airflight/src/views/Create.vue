@@ -55,7 +55,14 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button
+          class="btn btn-outline-danger"
+          @click="goToOffersList()"
+          style="margin-left: 15px"
+        >
+          Dismiss
+        </button>
       </form>
     </div>
   </section>
@@ -90,6 +97,9 @@ export default {
 
       const newVueshop = await apiRequest.createVueshop({ ...this.form });
       this.$router.push({ name: "View", params: { id: newVueshop._id } });
+    },
+    goToOffersList() {
+      this.$router.push("/admin/list");
     },
   },
 };

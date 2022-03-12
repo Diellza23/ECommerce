@@ -156,7 +156,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-5 col-lg-4 m-15px-tb">
+            <div
+              class="col-md-5 col-lg-4 m-15px-tb"
+              style="background-color: #f5f5f5"
+            >
               <div class="contact-name">
                 <h5>Mail</h5>
                 <p>vueshop@support.com</p>
@@ -188,12 +191,7 @@
         </div>
       </section>
     </form>
-    <div
-      class="footer-copyright text-center text-white-50 py-3"
-      style="background-color: #1c2331"
-    >
-      © 2022 Copyright:
-    </div>
+
     <mini-cart></mini-cart>
   </div>
 </template>
