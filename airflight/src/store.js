@@ -22,28 +22,35 @@ export default new Vuex.Store({
 
   mutations: {
     addToCart(state, item) {
-      let found = state.cart.find(
-        (product) => product.productId == item.productId
-      );
+      let found = false;
+      state.cart.map((product) => {
+        if (product.product_id == item.product_id) {
+          console.log("found");
+          found = true;
+        } else {
+          found = false;
+        }
+      });
 
-      if (found >= 1) {
-        found.productQuantity++;
-        console.log(found.productQuantity, "quantt");
+      console.log("FOUND STATE: " + found);
+
+      if (found == true) {
+        item.productQuantity++;
       } else {
         state.cart.push(item);
       }
 
       this.commit("saveData");
     },
+
     saveData(state) {
       window.localStorage.setItem("cart", JSON.stringify(state.cart));
     },
 
     removeFromCart(state, item) {
       let index = state.cart.indexOf(item);
-
+      item.productQuantity = 1;
       state.cart.splice(index, 1);
-
       this.commit("saveData");
     },
   },
