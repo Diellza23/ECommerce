@@ -23,7 +23,7 @@
             <div class="user-pic">
               <img
                 class="img-responsive img-rounded"
-                src="/img/user.png"
+                src="/img/administrator.png"
                 alt="User picture"
               />
             </div>
@@ -61,15 +61,15 @@
               </li>
 
               <li>
-                <router-link to="/admin/products">
-                  <i class="fab fa-amazon"></i>
-                  <span>Products</span>
+                <router-link to="/admin/profile">
+                  <i class="fa fa-user"></i>
+                  <span>Profile</span>
                 </router-link>
               </li>
               <li>
-                <router-link to="/admin/contactsList">
+                <router-link to="/admin/products">
                   <i class="fab fa-amazon"></i>
-                  <span>Contact List</span>
+                  <span>Products</span>
                 </router-link>
               </li>
               <li>
@@ -85,9 +85,9 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/admin/profile">
-                  <i class="fa fa-user"></i>
-                  <span>Profile</span>
+                <router-link to="/admin/contactsList">
+                  <i class="fab fa-amazon"></i>
+                  <span>Contact List</span>
                 </router-link>
               </li>
               <li>

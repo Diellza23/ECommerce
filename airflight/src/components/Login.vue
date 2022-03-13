@@ -274,10 +274,10 @@ export default {
         }
 
         if (this.email.includes("ubt-uni.net")) {
-          this.$router.replace("admin");
+          this.$router.replace("/admin/profile");
           location.reload();
         } else {
-          this.$router.replace("userProfile");
+          this.$router.replace("/userProfile");
           location.reload();
         }
         $("#login").modal("hide");
@@ -286,7 +286,6 @@ export default {
         alert(err.message);
       }
     },
-
     async loginUser() {
       if (
         this.email == "" ||
@@ -302,11 +301,10 @@ export default {
         await signInWithEmailAndPassword(auth, this.email, this.password);
 
         if (this.email.includes("ubt-uni.net")) {
-          this.$router.replace("admin");
-          location.reload();
+          this.$router.replace("/admin/profile");
         } else {
-          this.$router.replace("about");
-          location.reload();
+          this.$router.replace("/userProfile");
+          // location.reload();
         }
       } catch (err) {
         this.error = err;

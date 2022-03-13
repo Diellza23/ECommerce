@@ -6,7 +6,7 @@ import Products from "./views/Products.vue";
 import Profile from "./views/Profile.vue";
 import About from "./views/About.vue";
 import "./views/List.vue";
-import { onAuthStateChanged, getAuth } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import List from "./views/List.vue";
 import ContactsList from "./views/ContactsList.vue";
 import CreateContact from "./views/CreateContact.vue";
@@ -57,7 +57,7 @@ const router = new Router({
       path: "/admin",
       name: "admin",
       component: Admin,
-      meta: { isAuthenticated: true },
+      meta: { isAdmin: true },
       children: [
         {
           path: "list",
@@ -124,66 +124,32 @@ const router = new Router({
   ],
 });
 
-// router.beforeEach((to, from,next) => {
-//     const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
-//     const currentUser = firebase.auth().currentUser
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some(
+    (record) => record.meta.isAdmin || record.meta.isAuthenticated
+  );
+  const user = await getAuth().currentUser;
 
-//         if(requiresAuth && !currentUser) {
-//             next('/')
-//         }
-//         else if(requiresAuth && currentUser)
-//         {
-//             next()
-//         }
-//         else{
-//             next()
-//         }
-// })
+  if (requiresAuth && !user) {
+    const tokenResult = await getAuth().currentUser.getIdTokenResult();
+    const isUserAdmin = tokenResult.claims.admin;
 
-router.beforeEach((to, from, next) => {
-  onAuthStateChanged(getAuth(), async (user) => {
-    if (to.matched.some((record) => record.meta.isAuthenticated && !user)) {
-      next("/");
-    } else if (to.matched.some((record) => record.meta.isAdmin)) {
-      const tokenResult = getAuth().currentUser.getIdTokenResult();
-      if (!tokenResult.claims.admin) {
-        next("/admin");
-      } else {
-        next();
-      }
+    const isAdminRoute = to.matched.some((record) => record.meta.isAdmin);
+
+    if (isUserAdmin && !isAdminRoute) {
+      // redirect admin who tries to access user route
+      next("/admin/list");
+    } else if (!isUserAdmin && isAdminRoute) {
+      // redirect user who attempts to access admin route
+      next("/about");
     } else {
       next();
     }
-  });
+
+    next("/");
+  } else {
+    next();
+  }
 });
-
-// router.beforeEach((to, from, next) => {
-//   onAuthStateChanged(getAuth(), async (user) => {
-//     const shouldBeLoggedIn = (record) =>
-//       record.meta.isAuthenticated || record.meta.isAdmin;
-
-//     if (to.matched.some((record) => shouldBeLoggedIn(record))) {
-//       if (!user) {
-//         next("/");
-//       } else {
-//         const tokenResult = await getAuth().currentUser.getIdTokenResult();
-//         const isAdmin = tokenResult.claims.admin;
-//         if (isAdmin && to.matched.some((record) => !record.meta.isAdmin)) {
-//           next("/admin");
-//         } else if (to.matched.some((record) => record.meta.isAdmin)) {
-//           if (!tokenResult.claims.admin) {
-//             next("/about");
-//           } else {
-//             next();
-//           }
-//         } else {
-//           next();
-//         }
-//       }
-//     } else {
-//       next();
-//     }
-//   });
-// });
 
 export default router;

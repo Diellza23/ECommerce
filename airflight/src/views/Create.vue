@@ -47,9 +47,29 @@
             <Dropdown
               v-model="form.category"
               :options="[
-                { label: 'Electrics', value: 'electrics' },
-                { label: 'Tech', value: 'tech' },
-                { label: 'Other', value: 'other' },
+                { label: 'Electronics', value: 'Electronics' },
+                {
+                  label: 'Smartphones, tablets and smart devices',
+                  value: 'Smartphones, tablets and smart devices',
+                },
+                { label: 'Mobile accessories', value: 'Mobile accessories' },
+                {
+                  label: 'Virtual reality (VR)',
+                  value: 'Virtual reality (VR)',
+                },
+                { label: 'Bluetooth and Wi-Fi', value: 'Bluetooth and Wi-Fi' },
+                { label: 'Smart Home devices', value: 'Smart Home devices' },
+                { label: 'Security equipment', value: 'Security equipment' },
+                { label: 'Smart Watches', value: 'Smart Watches' },
+                { label: 'Headset & Earphones', value: 'Headset & Earphones' },
+                { label: 'Parts for computers', value: 'Parts for computers' },
+                { label: 'Laptops & computers', value: 'Laptops & computers' },
+                { label: 'Laptop accessories', value: 'Laptop accessories' },
+                { label: 'Keyboard and mouse', value: 'Keyboard and mouse' },
+                {
+                  label: 'Computer chairs & desks',
+                  value: 'Computer chairs & desks',
+                },
               ]"
             />
           </div>

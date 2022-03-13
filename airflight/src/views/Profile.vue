@@ -23,7 +23,7 @@
         <ul class="nav nav-pills ml-3" id="myTab" role="tablist">
           <li class="nav-item">
             <button
-              class="nav-link active"
+              class="nav-link"
               type="button"
               id="profile-tab"
               data-bs-toggle="tab"
@@ -37,7 +37,7 @@
 
           <li class="nav-item">
             <button
-              class="nav-link"
+              class="nav-link active"
               type="button"
               id="account-tab"
               data-bs-toggle="tab"
@@ -52,7 +52,7 @@
 
         <div class="tab-content" id="myTabContent">
           <div
-            class="tab-pane fade show active pt-3"
+            class="tab-pane fade pt-3"
             id="profile"
             role="tabpanel"
             aria-labelledby="profile-tab"
@@ -120,7 +120,7 @@
           </div>
 
           <div
-            class="tab-pane fade pt-3"
+            class="tab-pane fade pt-3 show active"
             id="account"
             role="tabpanel"
             aria-labelledby="account-tab"

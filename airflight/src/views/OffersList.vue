@@ -156,15 +156,11 @@ export default {
 
 <style>
 .l-bg-blue-dark {
-  background: linear-gradient(to right, #f6f8fc, #f6f8fc) !important;
+  background: linear-gradient(to right, #f0fcfc, #c8dafd) !important;
   color: #fff;
   margin-bottom: 15px;
 }
 
-.l-bg-cyan {
-  background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
-  color: #fff;
-}
 .discount {
   position: absolute;
   top: 25px;

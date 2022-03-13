@@ -41,7 +41,7 @@
       class="btn btn-danger"
       style="width: 150px; margin-top: 30px; float: right; margin-left: 10px"
     >
-      Cancel
+      Go back
     </button>
     <button
       class="btn btn-outline-success"
